@@ -42,4 +42,4 @@ public class InputManager : MonoBehaviour
         OnFoot.Disable();
     }
 }
-//https://www.youtube.com/watch?v=gPPGnpV1Y1c&list=PLGUw8UNswJEOv8c5ZcoHarbON6mIEUFBC&index=2
+//https://www.youtube.com/watch?v=CFASjEuhyf4&list=PLGUw8UNswJEOv8c5ZcoHarbON6mIEUFBC&index=4
