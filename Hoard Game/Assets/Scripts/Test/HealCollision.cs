@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeDamageCollision : MonoBehaviour
+public class HealCollision : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
         {
-            Debug.Log("Player Take Damage");
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(Random.Range(5, 10));
+            Debug.Log("Player Heal");
+            other.gameObject.GetComponent<PlayerHealth>().RestoreHealth(Random.Range(5, 10));
         }
     }
 }

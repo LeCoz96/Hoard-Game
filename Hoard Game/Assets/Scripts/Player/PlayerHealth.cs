@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
 {
     private float _health;
     [SerializeField] private float _maxHealth;
+    [SerializeField] private Material _takeDamageMaterial;
+    [SerializeField] private Material _healMaterial;
 
     [SerializeField] private float _lerpSpeed;
     private float _lerpTimer;
@@ -39,14 +41,10 @@ public class PlayerHealth : MonoBehaviour
         float FillBack = _backgroundHealth.fillAmount;
         float HealthFraction = _health / _maxHealth;
 
-        if(FillBack > HealthFraction)
-        {
-            _foregroundHealth.fillAmount = HealthFraction;
-            _backgroundHealth.color = Color.red;
-            _lerpTimer += Time.deltaTime;
-            float PercentComplete = _lerpTimer / _lerpSpeed;
-            _backgroundHealth.fillAmount = Mathf.Lerp(FillBack, HealthFraction, PercentComplete);
-        }
+        if (FillBack > HealthFraction)
+            UpdateHealthBar(_foregroundHealth, _backgroundHealth, HealthFraction, _takeDamageMaterial, FillBack, HealthFraction);
+        if (FillFront < HealthFraction)
+            UpdateHealthBar(_backgroundHealth, _foregroundHealth, HealthFraction, _healMaterial, FillFront, _backgroundHealth.fillAmount);
 
         UpdateHealthAmount();
     }
@@ -66,5 +64,15 @@ public class PlayerHealth : MonoBehaviour
     private void UpdateHealthAmount()
     {
         _healthValue.text = _health.ToString();
+    }
+
+    private void UpdateHealthBar(Image TargetBar, Image LerpBar, float Fraction, Material TargetMaterial, float FillBar, float FillValue)
+    {
+        TargetBar.fillAmount = Fraction;
+        _backgroundHealth.material = TargetMaterial;
+        _lerpTimer += Time.deltaTime;
+        float PercentComplete = _lerpTimer / _lerpSpeed;
+        PercentComplete = PercentComplete * PercentComplete;
+        LerpBar.fillAmount = Mathf.Lerp(FillBar, FillValue, PercentComplete);
     }
 }
