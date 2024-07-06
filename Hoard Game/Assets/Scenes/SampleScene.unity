@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 532495644}
   - component: {fileID: 532495643}
   m_Layer: 6
-  m_Name: ' EOA - HealCube'
+  m_Name: EOA - HealCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1883,9 +1883,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1911014321}
   - {fileID: 1537842347}
   - {fileID: 1959993248}
-  - {fileID: 1911014321}
   - {fileID: 1222213277}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -2416,7 +2416,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1093936186}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3153,7 +3153,7 @@ RectTransform:
   - {fileID: 409705588}
   - {fileID: 1109729609}
   m_Father: {fileID: 1093936186}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3191,7 +3191,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1093936186}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
