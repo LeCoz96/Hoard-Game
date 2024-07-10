@@ -19,7 +19,7 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
-        _playerUI.UpdateText(string.Empty);
+        _playerUI.UpdatePromptText(string.Empty);
 
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
 
@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
-                _playerUI.UpdateText(interactable.PromptMessage);
+                _playerUI.UpdatePromptText(interactable.PromptMessage);
 
                 if (_inputManager.OnFoot.Interact.triggered)
                     interactable.BaseInteract();
