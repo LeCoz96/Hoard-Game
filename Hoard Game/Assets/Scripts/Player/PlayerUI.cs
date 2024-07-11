@@ -20,13 +20,13 @@ public class PlayerUI : MonoBehaviour
         _pistolAmmo.text = value.ToString();
     }
 
-    public void UpdateSMGAmmo(int value) 
+    public void UpdateSMGAmmo(int value)
     {
         _SMGAmmo.text = value.ToString();
     }
 
-    public void UpdateRifleAmmo(int value) 
-    { 
+    public void UpdateRifleAmmo(int value)
+    {
         _rifleAmmo.text = value.ToString();
     }
 }

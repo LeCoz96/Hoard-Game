@@ -5,26 +5,27 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private PlayerUI _playerUI;
+    [SerializeField] private SO_Weapon _pistol;
 
     void Start()
     {
         _playerUI = GetComponent<PlayerUI>();
     }
 
-    public void AddToInventory(SO_Collectable.CollectableType type, int quantity)
+    public void AddToInventory(Collectables.CollectableType type, int quantity)
     {
         switch (type)
         {
-            case SO_Collectable.CollectableType.PistolAmmo:
-                _playerUI.UpdatePistolAmmo(quantity);
+            case Collectables.CollectableType.PistolAmmo:
+                _playerUI.UpdatePistolAmmo(_pistol.AddAmmo(quantity));
                 break;
-            case SO_Collectable.CollectableType.SMGAmmo:
+            case Collectables.CollectableType.SMGAmmo:
                 break;
-            case SO_Collectable.CollectableType.RifleAmmo:
+            case Collectables.CollectableType.RifleAmmo:
                 break;
-            case SO_Collectable.CollectableType.Health:
+            case Collectables.CollectableType.HealthKit:
                 break;
-            case SO_Collectable.CollectableType.Sheild:
+            case Collectables.CollectableType.Shield:
                 break;
         }
 
