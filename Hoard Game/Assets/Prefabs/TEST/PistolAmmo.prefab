@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ea495208d8ef4342906a43cf5357979, type: 2}
+  - {fileID: 2100000, guid: 80b28d79dd0519a4b99273de9ce6f3d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hueMaterial: {fileID: 2100000, guid: 80b28d79dd0519a4b99273de9ce6f3d7, type: 2}
   _colletablePrefab: {fileID: 0}
-  _collectableQuantity: 100
+  _collectableQuantity: 50
   _collectableType: 0
 --- !u!1 &7707753296455686049
 GameObject:
@@ -160,7 +160,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 15
   m_SpotAngle: 100
   m_InnerSpotAngle: 1
   m_CookieSize: 10

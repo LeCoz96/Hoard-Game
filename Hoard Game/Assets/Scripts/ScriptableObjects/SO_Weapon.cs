@@ -30,11 +30,16 @@ public class SO_Weapon : ScriptableObject
     public int AddAmmo(int value)
     {
         if ((_currentAmmo + value) >= _maxAmmo)
-            return _maxAmmo;
+            return _currentAmmo = _maxAmmo;
         else
         {
             _currentAmmo += value;
             return _currentAmmo;
         }
+    }
+
+    public bool CanAddMoreAmmo()
+    {
+        return _currentAmmo < _maxAmmo;
     }
 }
