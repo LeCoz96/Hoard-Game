@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Collectables : MonoBehaviour
 {
     [Header("Collectable Attributes")]
-    [SerializeField] private Material _hueMaterial;
+    [SerializeField] protected Material _hueMaterial;
     [SerializeField] private GameObject _colletablePrefab;
     [SerializeField] protected int _collectableQuantity;
     [SerializeField] protected CollectableType _collectableType;

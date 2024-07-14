@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float _fadeDelay;
     [SerializeField] private float _fadeSpeed;
     [SerializeField] private float _healthMinValue;
+    private bool _damageOverlayIsComplete = true;
 
     void Start()
     {
@@ -57,7 +58,10 @@ public class PlayerHealth : MonoBehaviour
         _lerpTimer = 0.0f;
 
         if (_health > _healthMinValue)
-            StartCoroutine(DamageOverlayDelay());
+        {
+            if (_damageOverlayIsComplete)
+                StartCoroutine(DamageOverlayDelay());
+        }
         else
             _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
     }
@@ -88,6 +92,8 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator DamageOverlayDelay()
     {
+        _damageOverlayIsComplete = false;
+
         _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
 
         yield return new WaitForSeconds(_fadeDelay);
@@ -99,5 +105,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 0);
+
+        _damageOverlayIsComplete = true;
     }
 }

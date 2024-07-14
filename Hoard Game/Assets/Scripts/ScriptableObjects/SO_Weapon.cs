@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Weapon")]
 public class SO_Weapon : ScriptableObject
@@ -17,7 +16,7 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private bool _automatic;
     [Header("Weapon UI")]
     [SerializeField] private GameObject _weaponPrefab;
-    [SerializeField] private Image _weaponIcon;
+    [SerializeField] private Sprite _weaponIcon;
     [SerializeField] private Material _weaponMaterial;
 
     public int GetMaxClipSize() { return _maxAmmo; }

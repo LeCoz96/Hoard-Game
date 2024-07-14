@@ -6,6 +6,8 @@ public class PlayerInventory : MonoBehaviour
 {
     private PlayerUI _playerUI;
     [SerializeField] private SO_Weapon _pistol;
+    [SerializeField] private SO_Weapon _SMG;
+    [SerializeField] private SO_Weapon _rifle;
 
     void Start()
     {
@@ -20,8 +22,10 @@ public class PlayerInventory : MonoBehaviour
                 _playerUI.UpdatePistolAmmo(_pistol.AddAmmo(quantity));
                 break;
             case Collectables.CollectableType.SMGAmmo:
+                _playerUI.UpdatePistolAmmo(_SMG.AddAmmo(quantity));
                 break;
             case Collectables.CollectableType.RifleAmmo:
+                _playerUI.UpdatePistolAmmo(_rifle.AddAmmo(quantity));
                 break;
             case Collectables.CollectableType.HealthKit:
                 break;
