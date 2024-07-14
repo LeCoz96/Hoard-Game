@@ -13,8 +13,18 @@ public class Ammo : Collectables
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerInventory>().AddToInventory(_collectableType, _collectableQuantity);
-            gameObject.SetActive(false);
+            PlayerInventory inventory = other.gameObject.GetComponent<PlayerInventory>();
+
+            if (inventory.CanBeCollected(_collectableType, _collectableQuantity))
+            {
+                inventory.AddToInventory(_collectableType, _collectableQuantity);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                // need to collect and set to max. if at max, dont collect
+                inventory.SetToMaxCapacity(_collectableType);
+            }
         }
     }
 }

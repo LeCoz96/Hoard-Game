@@ -24,7 +24,9 @@ public class SO_Weapon : ScriptableObject
     public int GetAmmoCapasity() { return _ammoCapacity; }
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }
-    
+
+    public void SetCurrentClipSize(int value) { _currentAmmo += value; }
+
     public int AddAmmo(int value)
     {
         if ((_currentAmmo + value) >= _maxAmmo)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Collectables;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -32,6 +33,71 @@ public class PlayerInventory : MonoBehaviour
             case Collectables.CollectableType.Shield:
                 break;
         }
+    }
 
+    public bool CanBeCollected(Collectables.CollectableType type, int quantity)
+    {
+        switch (type)
+        {
+            case CollectableType.PistolAmmo:
+                return CollectCheck((_pistol.GetCurrentClipSize() + quantity), _pistol.GetMaxClipSize());
+
+            case CollectableType.SMGAmmo:
+                return CollectCheck((_SMG.GetCurrentClipSize() + quantity), _SMG.GetMaxClipSize());
+
+            case CollectableType.RifleAmmo:
+                return CollectCheck((_rifle.GetCurrentClipSize() + quantity), _rifle.GetMaxClipSize());
+
+            default:
+                return false;
+
+            //case CollectableType.HealthKit:
+            //    return true;
+            //case CollectableType.Shield:
+            //    return true;
+        }
+    }
+
+    public void SetToMaxCapacity(Collectables.CollectableType type)
+    {
+        switch (type)
+        {
+            case CollectableType.PistolAmmo:
+                _pistol.SetCurrentClipSize(_pistol.GetMaxClipSize());
+                break;
+            case CollectableType.SMGAmmo:
+                _SMG.SetCurrentClipSize(_pistol.GetMaxClipSize());
+                break;
+
+            case CollectableType.RifleAmmo:
+                _pistol.SetCurrentClipSize(_pistol.GetMaxClipSize());
+
+                break;
+            //case CollectableType.HealthKit:
+            //    break;
+            //case CollectableType.Shield:
+            //    break;
+            default:
+                break;
+        }
+    }
+
+    private ScriptableObject GetCollectableType(CollectableType type)
+    {
+        switch(type)
+        {
+            case CollectableType.PistolAmmo:
+                return _pistol;
+            default:
+                return null;
+        }
+    }
+
+    private bool CollectCheck(float value1, float value2)
+    {
+        if (value1 < value2)
+            return true;
+        else
+            return false;
     }
 }
