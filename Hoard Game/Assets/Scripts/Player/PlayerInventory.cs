@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Collectables;
 
 public class PlayerInventory : MonoBehaviour
 {
     private PlayerUI _playerUI;
+    private PlayerStats _playerStats;
+
     [SerializeField] private SO_Weapon _pistol;
     [SerializeField] private SO_Weapon _SMG;
     [SerializeField] private SO_Weapon _rifle;
@@ -13,6 +14,7 @@ public class PlayerInventory : MonoBehaviour
     void Start()
     {
         _playerUI = GetComponent<PlayerUI>();
+        _playerStats = GetComponent<PlayerStats>();
     }
 
     public void AddToInventory(Collectables.CollectableType type, int quantity)
@@ -29,8 +31,10 @@ public class PlayerInventory : MonoBehaviour
                 _playerUI.UpdateRifleAmmo(_rifle.AddAmmo(quantity));
                 break;
             case Collectables.CollectableType.HealthKit:
+                _playerUI.UpdateHealthValue(_playerStats.UpdateHealth(quantity));
                 break;
             case Collectables.CollectableType.Shield:
+                _playerUI.UpdateShieldValue(_playerStats.UpdateShield(quantity));
                 break;
         }
     }
@@ -39,20 +43,20 @@ public class PlayerInventory : MonoBehaviour
     {
         switch (type)
         {
-            case CollectableType.PistolAmmo:
+            case Collectables.CollectableType.PistolAmmo:
                 return _pistol.CanAddMoreAmmo();
 
-            case CollectableType.SMGAmmo:
+            case Collectables.CollectableType.SMGAmmo:
                 return _SMG.CanAddMoreAmmo();
 
-            case CollectableType.RifleAmmo:
+            case Collectables.CollectableType.RifleAmmo:
                 return _rifle.CanAddMoreAmmo();
 
-            case CollectableType.HealthKit:
-                return true;
+            case Collectables.CollectableType.HealthKit:
+                return _playerStats.CanConsumeHealth();
 
-            case CollectableType.Shield:
-                return true;
+            case Collectables.CollectableType.Shield:
+                return _playerStats.CanConsumeShield();
 
             default:
                 return false;
