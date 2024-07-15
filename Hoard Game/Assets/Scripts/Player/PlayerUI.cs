@@ -14,12 +14,15 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _SMGAmmo;
     [SerializeField] private TextMeshProUGUI _rifleAmmo;
 
-    [Header("Stats")]
+    [Header("Stats - Health")]
     [SerializeField] private TextMeshProUGUI _healthValue;
     [SerializeField] private Image _healthBar;
+    [SerializeField] private SO_PlayerStats _health;
+
+    [Header("Stats - Shield")]
     [SerializeField] private TextMeshProUGUI _shieldValue;
     [SerializeField] private Image _shieldBar;
-    [SerializeField] private float _regenerationSpeed;
+    [SerializeField] private SO_PlayerStats _shield;
 
     [Header("Damage")]
     [SerializeField] private Image _damageOverlay;
@@ -28,18 +31,34 @@ public class PlayerUI : MonoBehaviour
     private bool _damageOverlayIsComplete = true;
 
     public void UpdatePromptText(string promptMessage) { _promptText.text = promptMessage; }
+
     public void UpdatePistolAmmo(int value) { _pistolAmmo.text = value.ToString(); }
     public void UpdateSMGAmmo(int value) { _SMGAmmo.text = value.ToString(); }
     public void UpdateRifleAmmo(int value) { _rifleAmmo.text = value.ToString(); }
 
-    public void UpdateHealthValue(int value) { _healthValue.text = value.ToString(); }
-    public void UpdateShieldValue(int value) { _shieldValue.text = value.ToString(); }
-
-    private IEnumerator UpdateStatsBar()
+    public void UpdateHealthValue(int value)
     {
+        _healthValue.text = value.ToString();
+
         UpdateHealthBar();
+
+        if (_healthBar.fillAmount < _health.GetConsumableMinimum())
+            _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
+        else
+            StartCoroutine(DamagerOverlay());
+    }
+
+    public void UpdateShieldValue(int value)
+    {
+        _shieldValue.text = value.ToString();
         UpdateShieldBar();
 
+        if (_shieldBar.fillAmount < _shield.GetConsumableMinimum())
+            StartCoroutine(SheildOverlay());
+    }
+
+    private IEnumerator DamagerOverlay()
+    {
         _damageOverlayIsComplete = false;
 
         _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
@@ -55,6 +74,11 @@ public class PlayerUI : MonoBehaviour
         _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 0);
 
         _damageOverlayIsComplete = true;
+    }
+
+    private IEnumerator SheildOverlay()
+    {
+        yield return new WaitForSeconds(1.0f);
     }
 
     private void UpdateHealthBar()
