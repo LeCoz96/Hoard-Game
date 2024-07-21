@@ -20,52 +20,52 @@ public class PlayerInventory : MonoBehaviour
         _playerStats = GetComponent<PlayerStats>();
     }
 
-    public void AddToInventory(Collectables.CollectableType type, int quantity)
+    public void AddToInventory(Collectable.CollectableType type, int quantity)
     {
         switch (type)
         {
-            case Collectables.CollectableType.PistolAmmo:
+            case Collectable.CollectableType.PistolAmmo:
                 _playerUI.UpdatePistolAmmo(_pistol.AddAmmo(quantity));
                 break;
 
-            case Collectables.CollectableType.SMGAmmo:
+            case Collectable.CollectableType.SMGAmmo:
                 _playerUI.UpdateSMGAmmo(_SMG.AddAmmo(quantity));
                 break;
 
-            case Collectables.CollectableType.RifleAmmo:
+            case Collectable.CollectableType.RifleAmmo:
                 _playerUI.UpdateRifleAmmo(_rifle.AddAmmo(quantity));
                 break;
 
-            case Collectables.CollectableType.HealthKit:
+            case Collectable.CollectableType.HealthKit:
                 _playerStats.UpdateHealth(quantity);
                 //_playerUI.UpdateHealthValue(_healthKit.UpdateStat(quantity));
                 break;
 
-            case Collectables.CollectableType.ShieldKit:
+            case Collectable.CollectableType.ShieldKit:
                 _playerStats.UpdateShield(quantity);
                 //_playerUI.UpdateShieldValue(_shield.UpdateStat(quantity));
                 break;
         }
     }
 
-    public bool CanCollect(Collectables.CollectableType type)
+    public bool CanCollect(Collectable.CollectableType type)
     {
         switch (type)
         {
-            case Collectables.CollectableType.PistolAmmo:
+            case Collectable.CollectableType.PistolAmmo:
                 return _pistol.CanAddMoreAmmo();
 
-            case Collectables.CollectableType.SMGAmmo:
+            case Collectable.CollectableType.SMGAmmo:
                 return _SMG.CanAddMoreAmmo();
 
-            case Collectables.CollectableType.RifleAmmo:
+            case Collectable.CollectableType.RifleAmmo:
                 return _rifle.CanAddMoreAmmo();
 
-            case Collectables.CollectableType.HealthKit:
-                return _playerStats.CanHaveMoreHealth();
+            case Collectable.CollectableType.HealthKit:
+                return _playerStats.HealthCheck();
 
-            case Collectables.CollectableType.ShieldKit:
-                return _playerStats.CanHaveMoreShield();
+            case Collectable.CollectableType.ShieldKit:
+                return _playerStats.ShieldCheck();
 
             default:
                 return false;

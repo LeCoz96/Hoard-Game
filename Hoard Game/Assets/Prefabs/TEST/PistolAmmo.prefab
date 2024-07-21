@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7552196906885912663}
   - component: {fileID: 7552196906885912662}
   - component: {fileID: 7552196906885912745}
-  - component: {fileID: 7552196906885912660}
+  - component: {fileID: 1240557366259046973}
   m_Layer: 6
   m_Name: PistolAmmo
   m_TagString: Untagged
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7552196906885912660
+--- !u!114 &1240557366259046973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,11 +108,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7552196906885912747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda2b3c788e49c84bafdce4d7e6ff80f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a19ed01a769b2e45a0bd27222269cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hueMaterial: {fileID: 2100000, guid: 80b28d79dd0519a4b99273de9ce6f3d7, type: 2}
-  _colletablePrefab: {fileID: 0}
   _collectableQuantity: 50
   _collectableType: 0
 --- !u!1 &7707753296455686049

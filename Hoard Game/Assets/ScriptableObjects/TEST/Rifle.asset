@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   _maxAmmo: 200
-  _currentAmmo: 0
+  _currentAmmo: 200
   _ammoCapacity: 30
   _fireRate: 20
   _reloadSpeed: 4

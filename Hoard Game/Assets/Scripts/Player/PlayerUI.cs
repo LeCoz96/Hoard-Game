@@ -16,6 +16,7 @@ public class PlayerUI : MonoBehaviour
 
     [Header("Stats - Health")]
     [SerializeField] private TextMeshProUGUI _healthValue;
+    private TMP_InputField _inputField;
     [SerializeField] private Image _healthBar;
     [SerializeField] private SO_Consumable _health;
 
@@ -36,25 +37,25 @@ public class PlayerUI : MonoBehaviour
     public void UpdateSMGAmmo(int value) { _SMGAmmo.text = value.ToString(); }
     public void UpdateRifleAmmo(int value) { _rifleAmmo.text = value.ToString(); }
 
-    public void UpdateHealthValue(int value)
+    public void SetHealth(int value) { _healthValue.text = value.ToString(); }
+    public void SetShield(int value) { _shieldValue.text = value.ToString(); }
+
+    public void UpdateHealthValue(int value, bool isDamage)
     {
         _healthValue.text = value.ToString();
 
-        UpdateHealthBar();
-
-        if (_healthBar.fillAmount < 0.20)
+        if (_healthBar.fillAmount < 0.2)
             _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
 
-        if (value < 0)
+        if (isDamage)
             StartCoroutine(DamagerOverlay());
         else
-            Debug.Log("Healted"); // give update health overlay...maybe animations?
+            Debug.Log("Healed"); // give update health overlay...maybe animations?
     }
 
     public void UpdateShieldValue(int value)
     {
         _shieldValue.text = value.ToString();
-        UpdateShieldBar();
 
         if (_shieldBar.fillAmount < 0.20)
             StartCoroutine(SheildOverlay());
@@ -82,15 +83,5 @@ public class PlayerUI : MonoBehaviour
     private IEnumerator SheildOverlay()
     {
         yield return new WaitForSeconds(1.0f);
-    }
-
-    private void UpdateHealthBar()
-    {
-        // if health bar is below a value keep damage overlay on screen
-    }
-
-    private void UpdateShieldBar()
-    {
-
     }
 }

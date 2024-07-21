@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 7474869397371168303}
   - component: {fileID: 7474869397371168304}
   - component: {fileID: 7474869397371168305}
-  - component: {fileID: 7474869397371168302}
+  - component: {fileID: 2393892134687225822}
   m_Layer: 6
   m_Name: SMGAmmo
   m_TagString: Untagged
@@ -193,7 +193,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7474869397371168302
+--- !u!114 &2393892134687225822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,10 +202,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7474869397371168307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda2b3c788e49c84bafdce4d7e6ff80f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a19ed01a769b2e45a0bd27222269cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hueMaterial: {fileID: 2100000, guid: 5795f64a7b00b334aa9f12a50f3b5300, type: 2}
-  _colletablePrefab: {fileID: 0}
   _collectableQuantity: 300
   _collectableType: 1

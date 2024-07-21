@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8072280017247484168}
   - component: {fileID: 8072280017247484169}
   - component: {fileID: 8072280017247484406}
-  - component: {fileID: 4698621220517823337}
+  - component: {fileID: 4884942732313543651}
   m_Layer: 6
   m_Name: HealthKit
   m_TagString: Untagged
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4698621220517823337
+--- !u!114 &4884942732313543651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,11 +108,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8072280017247484404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0f0eee89ce1f41419feec02de099f12, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a19ed01a769b2e45a0bd27222269cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hueMaterial: {fileID: 2100000, guid: 0d0de8a13a581a344bba9ad58aba8546, type: 2}
-  _collectableQuantity: 10
+  _collectableQuantity: 20
   _collectableType: 3
 --- !u!1 &8232514370881353470
 GameObject:
