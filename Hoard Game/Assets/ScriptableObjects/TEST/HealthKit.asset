@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faeb76754c1707642937979f66c1da42, type: 3}
-  m_Name: Shield
+  m_Script: {fileID: 11500000, guid: 87335060c28d51242b96d49f43b6478f, type: 3}
+  m_Name: HealthKit
   m_EditorClassIdentifier: 
-  _maxValue: 100
-  _minValue: 0
+  _consumableValue: 20

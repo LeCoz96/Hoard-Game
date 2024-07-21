@@ -17,12 +17,12 @@ public class PlayerUI : MonoBehaviour
     [Header("Stats - Health")]
     [SerializeField] private TextMeshProUGUI _healthValue;
     [SerializeField] private Image _healthBar;
-    [SerializeField] private SO_PlayerStats _health;
+    [SerializeField] private SO_Consumable _health;
 
     [Header("Stats - Shield")]
     [SerializeField] private TextMeshProUGUI _shieldValue;
     [SerializeField] private Image _shieldBar;
-    [SerializeField] private SO_PlayerStats _shield;
+    [SerializeField] private SO_Consumable _shield;
 
     [Header("Damage")]
     [SerializeField] private Image _damageOverlay;
@@ -42,10 +42,13 @@ public class PlayerUI : MonoBehaviour
 
         UpdateHealthBar();
 
-        if (_healthBar.fillAmount < _health.GetConsumableMinimum())
+        if (_healthBar.fillAmount < 0.20)
             _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
-        else
+
+        if (value < 0)
             StartCoroutine(DamagerOverlay());
+        else
+            Debug.Log("Healted"); // give update health overlay...maybe animations?
     }
 
     public void UpdateShieldValue(int value)
@@ -53,7 +56,7 @@ public class PlayerUI : MonoBehaviour
         _shieldValue.text = value.ToString();
         UpdateShieldBar();
 
-        if (_shieldBar.fillAmount < _shield.GetConsumableMinimum())
+        if (_shieldBar.fillAmount < 0.20)
             StartCoroutine(SheildOverlay());
     }
 

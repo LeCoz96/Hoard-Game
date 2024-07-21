@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Collectables : MonoBehaviour
+public abstract class Collectables : MonoBehaviour //make into single class with the on triggers from ammo and kit
 {
     [Header("Collectable Attributes")]
     [SerializeField] protected Material _hueMaterial;
@@ -15,7 +15,7 @@ public abstract class Collectables : MonoBehaviour
         SMGAmmo,
         RifleAmmo,
         HealthKit,
-        Shield
+        ShieldKit
     }
 
     public void BaseCollect()
