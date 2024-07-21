@@ -35,13 +35,11 @@ public class PlayerStats : MonoBehaviour
 
     public void UpdateHealth(int value)
     {
-        Debug.Log(value);
         bool isDamage = value < 0;
-        Debug.Log(isDamage);
 
         _currentHealth += GetCorrectValue(value, _currentHealth, _maxHealth);
 
-        _playerUI.UpdateHealthValue(_currentHealth, isDamage);
+        _playerUI.UpdateHealthValue(_currentHealth, _maxHealth, isDamage);
     }
 
 

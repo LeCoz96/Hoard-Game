@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   _maxAmmo: 100
-  _currentAmmo: 100
+  _currentAmmo: 0
   _ammoCapacity: 12
   _fireRate: 5
   _reloadSpeed: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   _maxAmmo: 600
-  _currentAmmo: 600
+  _currentAmmo: 0
   _ammoCapacity: 20
   _fireRate: 30
   _reloadSpeed: 3
