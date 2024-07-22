@@ -23,7 +23,6 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _shieldValue;
     [SerializeField] private Image _shieldBar;
     [SerializeField] private SO_Consumable _shield;
-    //private bool _shieldIsFull = true;
 
     [Header("Damage")]
     [SerializeField] private Image _damageOverlay;
@@ -67,10 +66,7 @@ public class PlayerUI : MonoBehaviour
     {
         _shieldValue.text = targetValue.ToString();
 
-        _healthBar.fillAmount = (float)targetValue / (float)maxValue;
-
-        //if (_shieldBar.fillAmount <= 0 && _shieldIsFull)
-        //    StartCoroutine(SheildOverlay());
+        _shieldBar.fillAmount = (float)targetValue / (float)maxValue;
     }
 
     private IEnumerator DamageOverlay()
@@ -91,13 +87,4 @@ public class PlayerUI : MonoBehaviour
 
         _damageOverlayIsComplete = true;
     }
-
-    //private IEnumerator SheildOverlay()
-    //{
-    //    _shieldIsFull = false;
-
-    //    yield return new WaitForSeconds(1.0f);
-
-    //    _shieldIsFull = true;
-    //}
 }

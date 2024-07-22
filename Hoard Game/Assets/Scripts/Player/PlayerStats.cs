@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
     {
         bool isDamage = value < 0;
 
-        _currentHealth += GetCorrectValue(value, _currentHealth, _maxHealth);
+        _currentHealth = GetCorrectValue(value, _currentHealth, _maxHealth);
 
         _playerUI.UpdateHealthValue(_currentHealth, _maxHealth, isDamage);
     }
@@ -45,18 +45,26 @@ public class PlayerStats : MonoBehaviour
 
     public void UpdateShield(int value)
     {
-        Debug.Log("Update Shield");
+        _currentShield = GetCorrectValue(value, _currentShield, _maxShield);
+
+        if (_currentShield <= 0)
+        {
+            int temp = 0 + _currentShield;
+            _currentShield = 0;
+            _playerUI.UpdateShieldValue(_currentShield, _maxShield);
+            UpdateHealth(temp);
+        }
+
+        _playerUI.UpdateShieldValue(_currentShield, _maxShield);
     }
 
     private int GetCorrectValue(int givenValue, int targetValue, int maxValue)
     {
-        int temp = 0;
-
         if ((targetValue + givenValue) >= maxValue)
-            temp = maxValue;
+            targetValue = maxValue;
         else
-            temp += givenValue;
+            targetValue += givenValue;
 
-        return temp;
+        return targetValue;
     }
 }
