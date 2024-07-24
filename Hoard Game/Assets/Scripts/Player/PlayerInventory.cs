@@ -14,6 +14,10 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private SO_Consumable _healthKit;
     [SerializeField] private SO_Consumable _shieldKit;
 
+    [SerializeField] private SO_Key _key1;
+    [SerializeField] private SO_Key _key2;
+    [SerializeField] private SO_Key _key3;
+
     void Start()
     {
         _playerUI = GetComponent<PlayerUI>();
@@ -38,12 +42,22 @@ public class PlayerInventory : MonoBehaviour
 
             case Collectable.CollectableType.HealthKit:
                 _playerStats.UpdateHealth(quantity);
-                //_playerUI.UpdateHealthValue(_healthKit.UpdateStat(quantity));
                 break;
 
             case Collectable.CollectableType.ShieldKit:
                 _playerStats.UpdateShield(quantity);
-                //_playerUI.UpdateShieldValue(_shield.UpdateStat(quantity));
+                break;
+
+            case Collectable.CollectableType.Key1:
+                _key1.CollectKey();
+                break;
+
+            case Collectable.CollectableType.Key2:
+                _key2.CollectKey();
+                break;
+
+            case Collectable.CollectableType.Key3:
+                _key3.CollectKey();
                 break;
         }
     }
@@ -53,19 +67,28 @@ public class PlayerInventory : MonoBehaviour
         switch (type)
         {
             case Collectable.CollectableType.PistolAmmo:
-                return _pistol.CanAddMoreAmmo();
+                return _pistol.CanCollect();
 
             case Collectable.CollectableType.SMGAmmo:
-                return _SMG.CanAddMoreAmmo();
+                return _SMG.CanCollect();
 
             case Collectable.CollectableType.RifleAmmo:
-                return _rifle.CanAddMoreAmmo();
+                return _rifle.CanCollect();
 
             case Collectable.CollectableType.HealthKit:
                 return _playerStats.HealthCheck();
 
             case Collectable.CollectableType.ShieldKit:
                 return _playerStats.ShieldCheck();
+
+            case Collectable.CollectableType.Key1:
+                return _key1.CanCollect();
+
+            case Collectable.CollectableType.Key2:
+                return _key2.CanCollect();
+
+            case Collectable.CollectableType.Key3:
+                return _key3.CanCollect();
 
             default:
                 return false;

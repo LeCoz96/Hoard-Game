@@ -38,7 +38,7 @@ public class SO_Weapon : ScriptableObject
         }
     }
 
-    public bool CanAddMoreAmmo()
+    public bool CanCollect()
     {
         return _currentAmmo < _maxAmmo;
     }

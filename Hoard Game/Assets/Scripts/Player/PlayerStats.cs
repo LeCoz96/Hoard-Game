@@ -23,11 +23,6 @@ public class PlayerStats : MonoBehaviour
         _playerUI.SetShield(_currentShield);
     }
 
-    //void Update()
-    //{
-
-    //}
-
     public bool HealthCheck() { return _currentHealth < _maxHealth; }
 
     public bool ShieldCheck() { return _currentShield < _maxShield; }
