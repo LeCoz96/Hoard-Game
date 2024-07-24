@@ -27,7 +27,6 @@ public class PlayerStats : MonoBehaviour
 
     public bool ShieldCheck() { return _currentShield < _maxShield; }
 
-
     public void UpdateHealth(int value)
     {
         bool isDamage = value < 0;
