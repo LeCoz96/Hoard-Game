@@ -10,16 +10,23 @@ public class InputManager : MonoBehaviour
     private PlayerInput _playerInput;
     private PlayerMotor _motor;
     private PlayerLook _look;
+    private PlayerAttack _attack;
 
     void Awake()
     {
         _playerInput = new PlayerInput();
+
         OnFoot = _playerInput.OnFoot;
+
         _motor = GetComponent<PlayerMotor>();
         OnFoot.Jump.performed += ctx => _motor.Jump();
-        _look = GetComponent<PlayerLook>();
         OnFoot.Crouch.performed += ctx => _motor.Crouch();
         OnFoot.Sprint.performed += ctx => _motor.Sprint();
+
+        _look = GetComponent<PlayerLook>();
+
+        _attack = GetComponent<PlayerAttack>();
+        OnFoot.Shoot.performed += ctx => _attack.Shoot();
     }
 
     void FixedUpdate()

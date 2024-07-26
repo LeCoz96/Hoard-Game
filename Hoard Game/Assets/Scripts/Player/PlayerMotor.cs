@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
-    private CharacterController controller;
+    private CharacterController _controller;
     private Vector3 _playerVelocity;
     private float _speed;
     [SerializeField] private float _moveSpeed;
@@ -22,13 +22,13 @@ public class PlayerMotor : MonoBehaviour
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        _controller = GetComponent<CharacterController>();
         _speed = _moveSpeed;
     }
 
     void Update()
     {
-        _isGrounded = controller.isGrounded;
+        _isGrounded = _controller.isGrounded;
 
         if(_lerpCrouch)
         {
@@ -37,9 +37,9 @@ public class PlayerMotor : MonoBehaviour
             p *= p;
 
             if(_crouching)
-                controller.height = Mathf.Lerp(controller.height, 1, p);
+                _controller.height = Mathf.Lerp(_controller.height, 1, p);
             else
-                controller.height = Mathf.Lerp(controller.height, 2, p);
+                _controller.height = Mathf.Lerp(_controller.height, 2, p);
 
             if(p > 1)
             {
@@ -54,14 +54,14 @@ public class PlayerMotor : MonoBehaviour
         Vector3 MoveDirection = Vector3.zero;
         MoveDirection.x = input.x;
         MoveDirection.z = input.y;
-        controller.Move(transform.TransformDirection(MoveDirection) * _speed * Time.deltaTime);
+        _controller.Move(transform.TransformDirection(MoveDirection) * _speed * Time.deltaTime);
 
         _playerVelocity.y += _gravity * Time.deltaTime;
 
         if (_isGrounded && _playerVelocity.y < 0)
             _playerVelocity.y = -2f;
 
-        controller.Move(_playerVelocity * Time.deltaTime);
+        _controller.Move(_playerVelocity * Time.deltaTime);
 
     }
 
