@@ -9,6 +9,9 @@ public class Collectable : MonoBehaviour
     [SerializeField] protected int _collectableQuantity;
     [SerializeField] protected CollectableType _collectableType;
 
+    [Header("Animation Attributes")]
+    [SerializeField] private float _spinSpeed;
+
     public enum CollectableType
     {
         PistolAmmo,
@@ -24,6 +27,11 @@ public class Collectable : MonoBehaviour
     void Start()
     {
         transform.GetComponentInChildren<Light>().color = _hueMaterial.color;
+    }
+
+    void Update()
+    {
+        transform.Rotate(0.0f, _spinSpeed * Time.deltaTime, 0.0f);
     }
 
     private void OnTriggerEnter(Collider other)

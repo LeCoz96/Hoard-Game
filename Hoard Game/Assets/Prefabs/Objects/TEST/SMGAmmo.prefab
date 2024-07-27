@@ -209,6 +209,7 @@ MonoBehaviour:
   _hueMaterial: {fileID: 2100000, guid: 80837e5ff141bf947921cbf6751b5ba3, type: 2}
   _collectableQuantity: 300
   _collectableType: 1
+  _spinSpeed: 50
 --- !u!95 &1254963568303496971
 Animator:
   serializedVersion: 4
