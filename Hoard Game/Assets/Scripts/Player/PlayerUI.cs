@@ -30,6 +30,11 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private float _fadeSpeed;
     private bool _damageOverlayIsComplete = true;
 
+    [Header("Key")]
+    [SerializeField] private GameObject _key1UI;
+    [SerializeField] private GameObject _key2UI;
+    [SerializeField] private GameObject _key3UI;
+
     public void UpdatePromptText(string promptMessage) { _promptText.text = promptMessage; }
 
     public void UpdatePistolAmmo(int value) { _pistolAmmo.text = value.ToString(); }
@@ -67,6 +72,27 @@ public class PlayerUI : MonoBehaviour
         _shieldValue.text = targetValue.ToString();
 
         _shieldBar.fillAmount = (float)targetValue / (float)maxValue;
+    }
+
+    public void UpdateKeys(int keyIndex)
+    {
+        switch (keyIndex)
+        {
+            case 1:
+                _key1UI.SetActive(true);
+                break;
+
+            case 2:
+                _key2UI.SetActive(true);
+                break;
+
+            case 3:
+                _key3UI.SetActive(true);
+                break;
+
+            default:
+                break;
+        }
     }
 
     private IEnumerator DamageOverlay()

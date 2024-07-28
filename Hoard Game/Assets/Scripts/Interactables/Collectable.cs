@@ -26,7 +26,7 @@ public class Collectable : MonoBehaviour
 
     void Start()
     {
-        transform.GetComponentInChildren<Light>().color = _hueMaterial.color;
+        transform.GetComponentInChildren<Light>().color = _hueMaterial.color;   
     }
 
     void Update()

@@ -50,14 +50,17 @@ public class PlayerInventory : MonoBehaviour
 
             case Collectable.CollectableType.Key1:
                 _key1.CollectKey();
+                _playerUI.UpdateKeys(1);
                 break;
 
             case Collectable.CollectableType.Key2:
                 _key2.CollectKey();
+                _playerUI.UpdateKeys(2);
                 break;
 
             case Collectable.CollectableType.Key3:
                 _key3.CollectKey();
+                _playerUI.UpdateKeys(3);
                 break;
         }
     }
