@@ -6,6 +6,9 @@ public class PlayerAttack : MonoBehaviour
 {
     private InputManager _inputManager;
 
+    [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject _bulletSpawn;
+
     void Start()
     {
         _inputManager = GetComponent<InputManager>();
