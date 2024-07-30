@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : MonoBehaviour
+public class Pistol : WeaponManager
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Attack()
     {
-        
+        Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Reload()
     {
-        
+        base.Reload();
     }
 }
