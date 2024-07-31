@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4918146466755900}
   - component: {fileID: 33622092815827442}
   - component: {fileID: 23918483125366124}
-  - component: {fileID: 4780974004485455125}
+  - component: {fileID: 5241711642043424241}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4780974004485455125
+--- !u!114 &5241711642043424241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1425814443739648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b68c2e877a429c419708e1a0364dced, type: 3}
+  m_Script: {fileID: 11500000, guid: 861da3e56e0214147980a5e027bd3b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 11400000, guid: 34a09d6a74be3f1498eb88129480e057, type: 2}

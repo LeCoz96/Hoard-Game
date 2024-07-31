@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4221978597732476}
   - component: {fileID: 33736846774591218}
   - component: {fileID: 23161218874257820}
+  - component: {fileID: 6212368993294781830}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -84,6 +85,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6212368993294781830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587966684976882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861da3e56e0214147980a5e027bd3b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 11400000, guid: abee9a49e103aff4cbf1933087146cb5, type: 2}
+  _bullet: {fileID: 5481131208548253871, guid: 5e2a1164dc632754fb8914ce621c95c7, type: 3}
+  _bulletSpawn: {fileID: 5458823181017399765}
+  _isGun: 1
 --- !u!1 &5458823181017399765
 GameObject:
   m_ObjectHideFlags: 0
