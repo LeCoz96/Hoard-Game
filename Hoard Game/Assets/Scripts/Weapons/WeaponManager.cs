@@ -6,10 +6,6 @@ public abstract class WeaponManager : MonoBehaviour
 {
     [SerializeField] private SO_Weapon _weapon;
 
-    [Header("Gun Attributes")]
-    [SerializeField] protected GameObject _bullet;
-    [SerializeField] protected GameObject _bulletSpawn;
-
     [SerializeField] protected bool _isGun;
 
     public void BaseAttack()

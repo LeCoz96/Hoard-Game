@@ -8,9 +8,6 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
 
-    [SerializeField] private GameObject _bullet;
-    [SerializeField] private GameObject _bulletSpawn;
-
     void Start()
     {
         _inputManager = GetComponent<InputManager>();

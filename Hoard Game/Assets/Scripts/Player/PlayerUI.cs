@@ -35,6 +35,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _key2UI;
     [SerializeField] private GameObject _key3UI;
 
+    [Header("Reload")]
+    [SerializeField] private Image _reloadBar;
+
     public void UpdatePromptText(string promptMessage) { _promptText.text = promptMessage; }
 
     public void UpdatePistolAmmo(int value) { _pistolAmmo.text = value.ToString(); }
@@ -95,6 +98,11 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    public void UpdateReloadBar(float delay)
+    {
+
+    }
+
     private IEnumerator DamageOverlay()
     {
         _damageOverlayIsComplete = false;
@@ -112,5 +120,16 @@ public class PlayerUI : MonoBehaviour
         _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 0);
 
         _damageOverlayIsComplete = true;
+    }
+
+    private IEnumerator ReloadBarFill(float value)
+    {
+        yield return new WaitForSeconds(value);
+
+        for (float i = 1f; i >= 0; i -= 0.1f)
+        {
+            _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, i);
+            yield return new WaitForSeconds(_fadeSpeed);
+        }
     }
 }
