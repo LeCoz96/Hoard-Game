@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
     public PlayerInput.OnFootActions OnFoot;
     
     private PlayerInput _playerInput;
-    private PlayerMotor _motor;
+    private PlayerMovement _motor;
     private PlayerLook _look;
     private PlayerAttack _attack;
 
@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
 
         OnFoot = _playerInput.OnFoot;
 
-        _motor = GetComponent<PlayerMotor>();
+        _motor = GetComponent<PlayerMovement>();
         OnFoot.Jump.performed += ctx => _motor.Jump();
         OnFoot.Crouch.performed += ctx => _motor.Crouch();
         OnFoot.Sprint.performed += ctx => _motor.Sprint();

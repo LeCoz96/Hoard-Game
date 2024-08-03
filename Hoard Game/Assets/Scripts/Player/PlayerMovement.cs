@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMotor : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private CharacterController _controller;
     private Vector3 _playerVelocity;
