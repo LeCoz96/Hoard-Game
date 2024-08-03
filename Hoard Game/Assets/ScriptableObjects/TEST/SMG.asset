@@ -16,8 +16,8 @@ MonoBehaviour:
   _currentAmmo: 0
   _ammoCapacity: 20
   _fireRate: 30
-  _reloadSpeed: 3
+  _reloadSpeed: 0.01
   _automatic: 1
-  _weaponPrefab: {fileID: 0}
+  _weaponPrefab: {fileID: 1810009754713828, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
   _weaponIcon: {fileID: 21300000, guid: d911efc2849117e48a82bbb78a4b24a6, type: 3}
-  _weaponMaterial: {fileID: 2100000, guid: 5795f64a7b00b334aa9f12a50f3b5300, type: 2}
+  _weaponMaterial: {fileID: 2100000, guid: 80837e5ff141bf947921cbf6751b5ba3, type: 2}

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private InputManager _inputManager;
+    private PlayerUI _playerUI;
 
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
 
     void Start()
     {
-        _inputManager = GetComponent<InputManager>();
+        _playerUI = GetComponent<PlayerUI>();
     }
 
     public void Shoot()
@@ -20,7 +20,15 @@ public class PlayerAttack : MonoBehaviour
 
     public void Reload()
     {
-        GetWeaponManager().BaseReload();
+        if (!SO_PlayerSystems._isReloading)
+        {
+            Debug.Log("Reload");
+           
+            WeaponManager weapon = GetWeaponManager();
+
+            _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed());
+            weapon.BaseReload();
+        }
     }
 
     private WeaponManager GetWeaponManager()

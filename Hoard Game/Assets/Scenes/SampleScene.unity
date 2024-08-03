@@ -9047,7 +9047,8 @@ MonoBehaviour:
   _key1UI: {fileID: 1378458360}
   _key2UI: {fileID: 1037841533}
   _key3UI: {fileID: 10779503}
-  _reloadBar: {fileID: 241420062}
+  _reloadBar: {fileID: 1825558497}
+  _reloadForground: {fileID: 241420062}
 --- !u!114 &1398677145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9096,6 +9097,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapons:
   - {fileID: 1800984228}
+  - {fileID: 1802663959}
+  - {fileID: 1482386632}
 --- !u!4 &1416299942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8675985045912274422, guid: 6394e566031b8c644a81abd2ea14e3f3, type: 3}
@@ -9363,6 +9366,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4507651082910892, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
   m_PrefabInstance: {fileID: 1482386630}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1482386632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6191922163657192641, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
+  m_PrefabInstance: {fileID: 1482386630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861da3e56e0214147980a5e027bd3b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1482585886
 GameObject:
   m_ObjectHideFlags: 0
@@ -11196,6 +11210,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4221978597732476, guid: c0bf9d1fd848d554abda1ef59eb498bc, type: 3}
   m_PrefabInstance: {fileID: 1802663957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1802663959 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6212368993294781830, guid: c0bf9d1fd848d554abda1ef59eb498bc, type: 3}
+  m_PrefabInstance: {fileID: 1802663957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861da3e56e0214147980a5e027bd3b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1809454321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8005486923531485175, guid: 82d9552ab0b362f4c9d06d04cbdf82ff, type: 3}
@@ -11216,7 +11241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1825558498
 RectTransform:
   m_ObjectHideFlags: 0

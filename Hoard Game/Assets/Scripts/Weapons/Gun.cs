@@ -7,6 +7,7 @@ public class Gun : WeaponManager
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _bulletSpawn;
 
+
     protected override void Attack()
     {
         Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation);
@@ -14,6 +15,6 @@ public class Gun : WeaponManager
 
     protected override void Reload()
     {
-        base.Reload();
+        Debug.Log(gameObject.name + " is reloading");
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public abstract class WeaponManager : MonoBehaviour
 {
-    [SerializeField] private SO_Weapon _weapon;
+    [SerializeField] protected SO_Weapon _weapon;
 
     [SerializeField] protected bool _isGun;
+
+    public SO_Weapon GetCurrentWeapon() { return _weapon; }
 
     public void BaseAttack()
     {
@@ -16,12 +18,7 @@ public abstract class WeaponManager : MonoBehaviour
 
     public void BaseReload()
     {
-        if (_isGun)
-            Reload();
-        //else
-        //{
-        //    // play animation
-        //}
+        Reload(); // play animation of not a gun
     }
     protected virtual void Reload() { }
 }

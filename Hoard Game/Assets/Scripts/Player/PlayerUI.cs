@@ -36,7 +36,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _key3UI;
 
     [Header("Reload")]
-    [SerializeField] private Image _reloadBar;
+    [SerializeField] private GameObject _reloadBar;
+    [SerializeField] private Image _reloadForground;
 
     public void UpdatePromptText(string promptMessage) { _promptText.text = promptMessage; }
 
@@ -100,7 +101,7 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateReloadBar(float delay)
     {
-
+        StartCoroutine(ReloadBarFill(delay));
     }
 
     private IEnumerator DamageOverlay()
@@ -124,12 +125,21 @@ public class PlayerUI : MonoBehaviour
 
     private IEnumerator ReloadBarFill(float value)
     {
-        yield return new WaitForSeconds(value);
+        SO_PlayerSystems.ToggleReloading();
 
-        for (float i = 1f; i >= 0; i -= 0.1f)
+        _reloadBar.SetActive(true);
+
+        for (float i = 1.0f; i >= 0; i -= 0.01f)
         {
-            _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, i);
-            yield return new WaitForSeconds(_fadeSpeed);
+            _reloadForground.fillAmount = i;
+            yield return new WaitForSeconds(value);
         }
+
+        // reset ammo value
+
+        _reloadBar.SetActive(false);
+        _reloadForground.fillAmount = 1;
+
+        SO_PlayerSystems.ToggleReloading();
     }
 }
