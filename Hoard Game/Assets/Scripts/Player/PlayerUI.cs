@@ -10,9 +10,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _promptText;
 
     [Header("Weapons")]
+    [SerializeField] private TextMeshProUGUI _weaponCurrentAmmo;
+    [SerializeField] private TextMeshProUGUI _weaponTotalAmmo;
     [SerializeField] private TextMeshProUGUI _pistolAmmo;
     [SerializeField] private TextMeshProUGUI _SMGAmmo;
     [SerializeField] private TextMeshProUGUI _rifleAmmo;
+    [SerializeField] private TextMeshProUGUI _shotgunAmmo;
+    [SerializeField] private TextMeshProUGUI _rpgAmmo;
 
     [Header("Stats - Health")]
     [SerializeField] private TextMeshProUGUI _healthValue;
@@ -44,6 +48,14 @@ public class PlayerUI : MonoBehaviour
     public void UpdatePistolAmmo(int value) { _pistolAmmo.text = value.ToString(); }
     public void UpdateSMGAmmo(int value) { _SMGAmmo.text = value.ToString(); }
     public void UpdateRifleAmmo(int value) { _rifleAmmo.text = value.ToString(); }
+    public void UpdateShotgunAmmo(int value) { _shotgunAmmo.text = value.ToString(); }
+    public void UpdateRPGAmmo(int value) { _rpgAmmo.text = value.ToString(); }
+
+    public void UpdateCurrentWeaponAmmo(int value1, int value2) 
+    {
+        _weaponCurrentAmmo.text = value1.ToString();
+        _weaponTotalAmmo.text = value2.ToString();
+    }
 
     public void SetHealth(int value) { _healthValue.text = value.ToString(); }
     public void SetShield(int value) { _shieldValue.text = value.ToString(); }

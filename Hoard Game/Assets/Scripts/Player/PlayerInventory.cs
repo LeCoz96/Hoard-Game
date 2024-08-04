@@ -10,6 +10,9 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private SO_Weapon _pistol;
     [SerializeField] private SO_Weapon _SMG;
     [SerializeField] private SO_Weapon _rifle;
+    [SerializeField] private SO_Weapon _shotgun;
+    [SerializeField] private SO_Weapon _rgp;
+    private SO_Weapon _currentWeapon;
 
     [SerializeField] private SO_Consumable _healthKit;
     [SerializeField] private SO_Consumable _shieldKit;
@@ -22,6 +25,22 @@ public class PlayerInventory : MonoBehaviour
     {
         _playerUI = GetComponent<PlayerUI>();
         _playerStats = GetComponent<PlayerStats>();
+
+        OrganiseInventory();
+    }
+
+    public void SetCurrentWeapon(SO_Weapon weapon)
+    {
+        _currentWeapon = weapon;
+    }
+
+    public void OrganiseInventory()
+    {
+        _playerUI.UpdatePistolAmmo(_pistol.GetCurrentAmmo());
+        _playerUI.UpdateSMGAmmo(_SMG.GetCurrentAmmo());
+        _playerUI.UpdateRifleAmmo(_rifle.GetCurrentAmmo());
+        _playerUI.UpdateShotgunAmmo(_shotgun.GetCurrentAmmo());
+        _playerUI.UpdateRPGAmmo(_rgp.GetCurrentAmmo());
     }
 
     public void AddToInventory(Collectable.CollectableType type, int quantity)
@@ -61,6 +80,9 @@ public class PlayerInventory : MonoBehaviour
             case Collectable.CollectableType.Key3:
                 _key3.CollectKey();
                 _playerUI.UpdateKeys(3);
+                break;
+
+            default:
                 break;
         }
     }

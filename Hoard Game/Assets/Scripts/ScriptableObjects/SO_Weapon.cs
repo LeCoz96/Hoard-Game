@@ -20,7 +20,7 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private Material _weaponMaterial;
 
     public int GetMaxClipSize() { return _maxAmmo; }
-    public int GetCurrentClipSize() { return _currentAmmo; }
+    public int GetCurrentAmmo() { return _currentAmmo; }
     public int GetAmmoCapasity() { return _ammoCapacity; }
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }

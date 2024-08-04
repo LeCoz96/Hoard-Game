@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 1080982395}
   - component: {fileID: 5773288646347429739}
   - component: {fileID: 5602528067758512423}
+  - component: {fileID: 4078662306659907855}
   m_Layer: 0
   m_Name: RocketLauncher
   m_TagString: Untagged
@@ -115,3 +116,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4078662306659907855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670779620426368027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861da3e56e0214147980a5e027bd3b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 11400000, guid: 03ac20c5dd092b5459f7a53d695360b5, type: 2}
+  _bullet: {fileID: 5809823269168808164, guid: 435db10d5bbe519418cea4ce4a81af3f, type: 3}
+  _bulletSpawn: {fileID: 4724378520909283849}
