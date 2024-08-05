@@ -26,8 +26,9 @@ public class InputManager : MonoBehaviour
         _look = GetComponent<PlayerLook>();
 
         _attack = GetComponent<PlayerAttack>();
-        OnFoot.Shoot.performed += ctx => _attack.Shoot();
+        OnFoot.Shoot.performed += ctx => _attack.Attack();
         OnFoot.Reload.performed += ctx => _attack.Reload();
+        //OnFoot.Throw.performed += ctx => _attack.ThrowExplosive();
     }
 
     void FixedUpdate()

@@ -8,12 +8,15 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
 
+    [SerializeField] private GameObject _explosiveSpawn;
+    [SerializeField] private GameObject _explosive;
+
     void Start()
     {
         _playerUI = GetComponent<PlayerUI>();
     }
 
-    public void Shoot()
+    public void Attack()
     {
         GetWeaponManager().BaseAttack();
     }
@@ -29,6 +32,11 @@ public class PlayerAttack : MonoBehaviour
             _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed());
             weapon.BaseReload();
         }
+    }
+
+    public void ThrowExplosive()
+    {
+        Instantiate(_explosive, _explosiveSpawn.transform.position, transform.rotation);
     }
 
     private WeaponManager GetWeaponManager()
