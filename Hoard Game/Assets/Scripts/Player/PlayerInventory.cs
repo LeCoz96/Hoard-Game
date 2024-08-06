@@ -21,17 +21,21 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private SO_Key _key2;
     [SerializeField] private SO_Key _key3;
 
+    private void OnEnable()
+    {
+        _playerStats = GetComponent<PlayerStats>();
+        _playerUI = GetComponent<PlayerUI>();
+    }
+
     void Start()
     {
-        _playerUI = GetComponent<PlayerUI>();
-        _playerStats = GetComponent<PlayerStats>();
-
         OrganiseInventory();
     }
 
     public void SetCurrentWeapon(SO_Weapon weapon)
     {
         UpdateCurrentAmmo(weapon.GetCurrentAmmo(), weapon.GetTotalAmmo());
+
 
         // update player weapon UI
     }

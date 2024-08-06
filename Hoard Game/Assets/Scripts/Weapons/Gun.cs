@@ -10,27 +10,31 @@ public class Gun : WeaponManager
     protected override void Attack()
     {
         if (_weapon.GetCurrentAmmo() <= 0)
-        {
             Reload();
-        }
         else
         {
             Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation);
 
-            _weapon.SetCurrentClipSize(_weapon.GetCurrentAmmo() - 1);
+            _weapon.SetCurrentClipSize(-1);
 
-            _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+            if (_weapon.GetCurrentAmmo() <= 0)
+                Reload();
+            else
+                _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
         }
 
     }
 
     protected override void Reload()
     {
-        Debug.Log(gameObject.name + " is reloading");
+        if (_weapon.CanReload())
+        {
+            UpdateClip();
 
-        UpdateClip();
-
-        _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+            _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+        }
+        //else
+        //    // play animation
     }
 
     private void OnEnable()
@@ -40,7 +44,7 @@ public class Gun : WeaponManager
 
     private void UpdateClip()
     {
-        // update total ammo to -(currentclip - maxclip) size
-        // udapte current clip to max clip
+        _weapon.SetTotalAmmo(_weapon.GetCurrentAmmo() - _weapon.GetMaxClip());
+        _weapon.SetCurrentClipSize(_weapon.GetMaxClip() - _weapon.GetCurrentAmmo());
     }
 }

@@ -20,15 +20,17 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private Sprite _weaponIcon;
     [SerializeField] private Material _weaponMaterial;
 
-    //public int GetMaxAmmo() { return _maxAmmo; }
     public int GetCurrentAmmo() { return _currentAmmo; }
     public int GetTotalAmmo() { return _totalAmmo; }
     public int GetMaxClip() { return _maxClip; }
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }
 
+    public bool CanCollect() { return _currentAmmo < _maxAmmo; }
+
     public void SetCurrentClipSize(int value) { _currentAmmo += value; }
     public void SetTotalAmmo(int value) { _totalAmmo += value; }
+    public bool CanReload() { return _currentAmmo < _maxClip; }
 
     public int AddAmmo(int value)
     {
@@ -41,8 +43,4 @@ public class SO_Weapon : ScriptableObject
         }
     }
 
-    public bool CanCollect()
-    {
-        return _currentAmmo < _maxAmmo;
-    }
 }

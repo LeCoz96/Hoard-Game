@@ -8,8 +8,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
 
-    [SerializeField] private GameObject _explosiveSpawn;
-    [SerializeField] private GameObject _explosive;
+    //[SerializeField] private GameObject _explosiveSpawn;
+    //[SerializeField] private GameObject _explosive;
 
     void Start()
     {
@@ -25,19 +25,19 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!SO_PlayerSystems._isReloading)
         {
-            Debug.Log("Reload");
-           
             WeaponManager weapon = GetWeaponManager();
 
-            _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed());
+            //weapon.GetCurrentWeapon().CanReload();
+
+            _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed()); // Don't update the bar if the mag is full
             weapon.BaseReload();
         }
     }
 
-    public void ThrowExplosive()
-    {
-        Instantiate(_explosive, _explosiveSpawn.transform.position, transform.rotation);
-    }
+    //public void ThrowExplosive()
+    //{
+    //    Instantiate(_explosive, _explosiveSpawn.transform.position, transform.rotation);
+    //}
 
     private WeaponManager GetWeaponManager()
     {

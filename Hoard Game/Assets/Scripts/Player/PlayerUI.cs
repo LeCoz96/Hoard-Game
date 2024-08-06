@@ -147,8 +147,6 @@ public class PlayerUI : MonoBehaviour
             yield return new WaitForSeconds(value);
         }
 
-        // reset ammo value
-
         _reloadBar.SetActive(false);
         _reloadForground.fillAmount = 1;
 
