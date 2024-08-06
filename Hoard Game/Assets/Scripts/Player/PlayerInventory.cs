@@ -12,7 +12,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private SO_Weapon _rifle;
     [SerializeField] private SO_Weapon _shotgun;
     [SerializeField] private SO_Weapon _rgp;
-    private SO_Weapon _currentWeapon;
+    //private SO_Weapon _currentWeapon;
 
     [SerializeField] private SO_Consumable _healthKit;
     [SerializeField] private SO_Consumable _shieldKit;
@@ -31,7 +31,14 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetCurrentWeapon(SO_Weapon weapon)
     {
-        _currentWeapon = weapon;
+        UpdateCurrentAmmo(weapon.GetCurrentAmmo(), weapon.GetTotalAmmo());
+
+        // update player weapon UI
+    }
+
+    public void UpdateCurrentAmmo(int currentClip, int totalAmmo)
+    {
+        _playerUI.UpdateCurrentWeaponAmmo(currentClip, totalAmmo);
     }
 
     public void OrganiseInventory()

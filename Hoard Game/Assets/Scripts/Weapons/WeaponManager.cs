@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class WeaponManager : MonoBehaviour
 {
     [SerializeField] protected SO_Weapon _weapon;
+    [SerializeField] protected PlayerInventory _playerInventory;
 
     public SO_Weapon GetCurrentWeapon() { return _weapon; }
 

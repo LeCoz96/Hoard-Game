@@ -10,7 +10,8 @@ public class SO_Weapon : ScriptableObject
     [Header("Weapon Attributes")]
     [SerializeField] private int _maxAmmo;
     [SerializeField] private int _currentAmmo;
-    [SerializeField] private int _ammoCapacity;
+    [SerializeField] private int _totalAmmo;
+    [SerializeField] private int _maxClip;
     [SerializeField] private float _fireRate;
     [SerializeField] private float _reloadSpeed;
     [SerializeField] private bool _automatic;
@@ -19,13 +20,15 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private Sprite _weaponIcon;
     [SerializeField] private Material _weaponMaterial;
 
-    public int GetMaxClipSize() { return _maxAmmo; }
+    //public int GetMaxAmmo() { return _maxAmmo; }
     public int GetCurrentAmmo() { return _currentAmmo; }
-    public int GetAmmoCapasity() { return _ammoCapacity; }
+    public int GetTotalAmmo() { return _totalAmmo; }
+    public int GetMaxClip() { return _maxClip; }
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }
 
     public void SetCurrentClipSize(int value) { _currentAmmo += value; }
+    public void SetTotalAmmo(int value) { _totalAmmo += value; }
 
     public int AddAmmo(int value)
     {
