@@ -30,7 +30,7 @@ public class SO_Weapon : ScriptableObject
 
     public void SetCurrentClipSize(int value) { _currentAmmo += value; }
     public void SetTotalAmmo(int value) { _totalAmmo += value; }
-    public bool CanReload() { return _currentAmmo < _maxClip; }
+    public bool CanReload() { return _currentAmmo < _maxClip && _totalAmmo > 0; }
 
     public int AddAmmo(int value)
     {

@@ -27,10 +27,13 @@ public class PlayerAttack : MonoBehaviour
         {
             WeaponManager weapon = GetWeaponManager();
 
-            //weapon.GetCurrentWeapon().CanReload();
+            if (weapon.CanReload())
+            {
+                Debug.Log("Can Reload");
+                _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed());
 
-            _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed()); // Don't update the bar if the mag is full
-            weapon.BaseReload();
+                weapon.BaseReload();
+            }
         }
     }
 

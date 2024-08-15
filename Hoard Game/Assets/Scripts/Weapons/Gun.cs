@@ -7,6 +7,8 @@ public class Gun : WeaponManager
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _bulletSpawn;
 
+    [SerializeField] private PlayerUI _playerUI;
+
     protected override void Attack()
     {
         if (_weapon.GetCurrentAmmo() <= 0)
@@ -35,6 +37,11 @@ public class Gun : WeaponManager
         }
         //else
         //    // play animation
+    }
+
+    public override bool CanReload()
+    {
+        return _weapon.CanReload();
     }
 
     private void OnEnable()

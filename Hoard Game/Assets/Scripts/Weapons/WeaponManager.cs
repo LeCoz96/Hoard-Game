@@ -9,6 +9,8 @@ public abstract class WeaponManager : MonoBehaviour
 
     public SO_Weapon GetCurrentWeapon() { return _weapon; }
 
+    public virtual bool CanReload() { return true; }
+
     public void BaseAttack()
     {
         Attack();
