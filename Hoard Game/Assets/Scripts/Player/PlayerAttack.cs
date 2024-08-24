@@ -29,7 +29,6 @@ public class PlayerAttack : MonoBehaviour
 
             if (weapon.CanReload())
             {
-                Debug.Log("Can Reload");
                 _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed());
 
                 weapon.BaseReload();

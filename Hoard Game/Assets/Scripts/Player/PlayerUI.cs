@@ -141,10 +141,10 @@ public class PlayerUI : MonoBehaviour
 
         _reloadBar.SetActive(true);
 
-        for (float i = 1.0f; i >= 0; i -= 0.01f)
+        for (float i = value; i >= 0; i -= 0.01f)
         {
-            _reloadForground.fillAmount = i;
-            yield return new WaitForSeconds(value);
+            _reloadForground.fillAmount = i / value;
+            yield return new WaitForSeconds(0.01f);
         }
 
         _reloadBar.SetActive(false);
