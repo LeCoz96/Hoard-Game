@@ -9,6 +9,20 @@ public class Gun : WeaponManager
 
     [SerializeField] private PlayerUI _playerUI;
 
+    private bool _hasReloaded = false;
+
+    void Update()
+    {
+        if(_hasReloaded && !SO_PlayerSystems._isReloading)
+        {
+            UpdateClip();
+
+            _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+
+            _hasReloaded = false;
+        }
+    }
+
     protected override void Attack()
     {
         if (_weapon.GetCurrentAmmo() <= 0)
@@ -29,14 +43,16 @@ public class Gun : WeaponManager
 
     protected override void Reload()
     {
-        if (_weapon.CanReload())
-        {
-            UpdateClip();
+        //if (_weapon.CanReload())
+        //{
+        //    UpdateClip();
 
-            _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
-        }
-        //else
-        //    // play animation
+        //    _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+        //}
+        ////else
+        ////    // play animation
+
+        _hasReloaded = true;
     }
 
     public override bool CanReload()
