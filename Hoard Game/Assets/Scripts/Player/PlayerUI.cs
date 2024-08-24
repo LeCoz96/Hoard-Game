@@ -40,8 +40,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _key3UI;
 
     [Header("Reload")]
-    [SerializeField] private GameObject _reloadBar;
-    [SerializeField] private Image _reloadForground;
+    //[SerializeField] private GameObject _reloadBar;
+    //[SerializeField] private Image _reloadForground;
+    [SerializeField] private ReloadManager _reloadManager;
 
     public void UpdatePromptText(string promptMessage) { _promptText.text = promptMessage; }
 
@@ -113,7 +114,8 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateReloadBar(float delay)
     {
-        StartCoroutine(ReloadBarFill(delay));
+        _reloadManager.TriggerReload(delay);
+        //StartCoroutine(ReloadBarFill(delay));
     }
 
     private IEnumerator DamageOverlay()
@@ -135,21 +137,21 @@ public class PlayerUI : MonoBehaviour
         _damageOverlayIsComplete = true;
     }
 
-    private IEnumerator ReloadBarFill(float value)
-    {
-        SO_PlayerSystems.ToggleReloading();
+    //private IEnumerator ReloadBarFill(float value)
+    //{
+    //    SO_PlayerSystems.ToggleReloading();
 
-        _reloadBar.SetActive(true);
+    //    _reloadBar.SetActive(true);
 
-        for (float i = value; i >= 0; i -= 0.01f)
-        {
-            _reloadForground.fillAmount = i / value;
-            yield return new WaitForSeconds(0.01f);
-        }
+    //    for (float i = value; i >= 0; i -= 0.01f)
+    //    {
+    //        _reloadForground.fillAmount = i / value;
+    //        yield return new WaitForSeconds(0.01f);
+    //    }
 
-        _reloadBar.SetActive(false);
-        _reloadForground.fillAmount = 1;
+    //    _reloadBar.SetActive(false);
+    //    _reloadForground.fillAmount = 1;
 
-        SO_PlayerSystems.ToggleReloading();
-    }
+    //    SO_PlayerSystems.ToggleReloading();
+    //}
 }
