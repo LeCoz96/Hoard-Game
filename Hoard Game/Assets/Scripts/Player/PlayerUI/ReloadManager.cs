@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class ReloadManager : MonoBehaviour
 {
-    private float _current;
-    private float _timer;
-
     [SerializeField] private GameObject _reloadBar;
     [SerializeField] private Image _reloadForground;
+
+    private float _current;
+    private float _timer;
 
     void Update()
     {

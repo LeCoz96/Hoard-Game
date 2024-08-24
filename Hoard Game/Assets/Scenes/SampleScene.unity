@@ -1071,6 +1071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101954902}
+  - component: {fileID: 101954903}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -1102,6 +1103,24 @@ RectTransform:
   m_AnchoredPosition: {x: -625, y: -425}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &101954903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101954901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f41c65410eefeb459fd4fabf2df60e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthValue: {fileID: 745191383}
+  _healthBar: {fileID: 901504614}
+  _health: {fileID: 11400000, guid: 9d041b6f9907fc04cb8f6eb79df32666, type: 2}
+  _damageOverlay: {fileID: 1928878655}
+  _fadeDelay: 0.001
+  _fadeSpeed: 1
 --- !u!1001 &103466140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1771,6 +1790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206557366}
+  - component: {fileID: 206557367}
   m_Layer: 5
   m_Name: Shield
   m_TagString: Untagged
@@ -1802,6 +1822,21 @@ RectTransform:
   m_AnchoredPosition: {x: -625, y: -460}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &206557367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206557365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5888be3f9c7a5c45b801deaaf7b5fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shieldValue: {fileID: 1614103053}
+  _shieldBar: {fileID: 988420431}
+  _shield: {fileID: 11400000, guid: 7fb8c8710cd351c4aa270f21531c43c3, type: 2}
 --- !u!1001 &209446475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7995,15 +8030,8 @@ MonoBehaviour:
   _rifleAmmo: {fileID: 1138830267}
   _shotgunAmmo: {fileID: 388993910}
   _rpgAmmo: {fileID: 505016447}
-  _healthValue: {fileID: 745191383}
-  _healthBar: {fileID: 901504614}
-  _health: {fileID: 11400000, guid: 9d041b6f9907fc04cb8f6eb79df32666, type: 2}
-  _shieldValue: {fileID: 1614103053}
-  _shieldBar: {fileID: 988420431}
-  _shield: {fileID: 11400000, guid: 7fb8c8710cd351c4aa270f21531c43c3, type: 2}
-  _damageOverlay: {fileID: 1928878655}
-  _fadeDelay: 0.5
-  _fadeSpeed: 0.05
+  _healthManager: {fileID: 101954903}
+  _shieldManager: {fileID: 206557367}
   _key1UI: {fileID: 1378458360}
   _key2UI: {fileID: 1037841533}
   _key3UI: {fileID: 10779503}

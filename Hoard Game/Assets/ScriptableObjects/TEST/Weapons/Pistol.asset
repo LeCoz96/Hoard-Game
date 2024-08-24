@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   _maxAmmo: 100
-  _currentAmmo: 12
+  _currentAmmo: 11
   _totalAmmo: 50
   _maxClip: 12
   _fireRate: 5
-  _reloadSpeed: 5
+  _reloadSpeed: 1
   _automatic: 0
   _weaponPrefab: {fileID: 1425814443739648, guid: b8472c75b2bc2ee4b98e87869dace24f, type: 3}
   _weaponIcon: {fileID: 21300000, guid: 4e6f6f78d12f76c478229af380154393, type: 3}
