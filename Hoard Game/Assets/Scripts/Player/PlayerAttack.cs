@@ -8,9 +8,6 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
 
-    //[SerializeField] private GameObject _explosiveSpawn;
-    //[SerializeField] private GameObject _explosive;
-
     void Start()
     {
         _playerUI = GetComponent<PlayerUI>();
@@ -18,7 +15,15 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        GetWeaponManager().BaseAttack();
+        if (GetWeaponManager().GetCurrentWeapon().CanShoot())
+        {
+            GetWeaponManager().BaseAttack();
+        }
+    }
+
+    public void EndAttack()
+    {
+        GetWeaponManager().GetCurrentWeapon().SetCanShoot(true);
     }
 
     public void Reload()
@@ -35,11 +40,6 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
-
-    //public void ThrowExplosive()
-    //{
-    //    Instantiate(_explosive, _explosiveSpawn.transform.position, transform.rotation);
-    //}
 
     private WeaponManager GetWeaponManager()
     {

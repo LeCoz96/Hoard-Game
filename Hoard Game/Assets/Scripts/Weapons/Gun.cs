@@ -15,6 +15,8 @@ public class Gun : WeaponManager
             Reload();
         else
         {
+            Shoot();
+
             Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation);
 
             _weapon.SetCurrentClipSize(-1);
@@ -22,9 +24,17 @@ public class Gun : WeaponManager
             if (_weapon.GetCurrentAmmo() <= 0)
                 Reload();
             else
-                _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
-        }
+            {
+                Invoke("Shoot", _weapon.GetFireRate());
 
+                _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+            }
+
+            if (_weapon.CanShoot())
+            {
+                _weapon.SetCanShoot(false);
+            }
+        }
     }
 
     protected override void Reload()
@@ -40,6 +50,11 @@ public class Gun : WeaponManager
     public override bool CanReload()
     {
         return _weapon.CanReload();
+    }
+
+    private void Shoot()
+    {
+        _weapon.ToggleCanShoot();
     }
 
     private void OnEnable()
