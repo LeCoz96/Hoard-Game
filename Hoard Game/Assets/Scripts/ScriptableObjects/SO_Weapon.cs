@@ -14,7 +14,8 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private int _maxClip;
     [SerializeField] private float _fireRate;
     [SerializeField] private float _reloadSpeed;
-    [SerializeField] private bool _automatic;
+    [SerializeField] private bool _isAutomatic;
+    [SerializeField] private bool _isMelee;
     private bool _canShoot;
     [Header("Weapon UI")]
     [SerializeField] private GameObject _weaponPrefab;
@@ -33,7 +34,7 @@ public class SO_Weapon : ScriptableObject
     public void SetTotalAmmo(int value) { _totalAmmo += value; }
     public bool CanReload() { return _currentAmmo < _maxClip && _totalAmmo > 0; }
 
-    public bool IsAutomatic() { return _automatic; }
+    public bool IsAutomatic() { return _isAutomatic; }
     public bool CanShoot() { return _canShoot; }
     public void SetCanShoot(bool value) { _canShoot = value; }
     public void ToggleCanShoot() { _canShoot = !_canShoot; }

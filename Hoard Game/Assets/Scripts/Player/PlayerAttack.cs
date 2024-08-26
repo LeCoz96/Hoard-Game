@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private PlayerUI _playerUI;
-
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
 
-    void Start()
+    private bool _isAttacking = false;
+
+    private void Update()
     {
-        _playerUI = GetComponent<PlayerUI>();
+        if (_isAttacking && GetWeaponManager().GetCurrentWeapon().IsAutomatic())
+            Attack();
     }
 
     public void Attack()
     {
-        if (GetWeaponManager().GetCurrentWeapon().CanShoot())
-        {
-            GetWeaponManager().BaseAttack();
-        }
+        _isAttacking = true;
+
+        GetWeaponManager().BaseAttack();
     }
 
     public void EndAttack()
     {
-        GetWeaponManager().GetCurrentWeapon().SetCanShoot(true);
+        _isAttacking = false;
+
+        if (!GetWeaponManager().GetCurrentWeapon().IsAutomatic())
+            GetWeaponManager().GetCurrentWeapon().SetCanShoot(true);
     }
 
     public void Reload()
@@ -33,11 +36,7 @@ public class PlayerAttack : MonoBehaviour
             WeaponManager weapon = GetWeaponManager();
 
             if (weapon.CanReload())
-            {
-                _playerUI.UpdateReloadBar(weapon.GetCurrentWeapon().GetReloadSpeed());
-
                 weapon.BaseReload();
-            }
         }
     }
 

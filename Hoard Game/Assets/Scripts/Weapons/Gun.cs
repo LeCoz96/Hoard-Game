@@ -6,34 +6,35 @@ public class Gun : WeaponManager
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _bulletSpawn;
-
     [SerializeField] private PlayerUI _playerUI;
+
+    private float _current = 0.0f;
+
+    void Update()
+    {
+        if (!CheckCanShoot() && _weapon.IsAutomatic())
+        {
+
+            if (_current >= 0.0f)
+                _current -= Time.deltaTime;
+            else
+                EnableShoot();
+        }
+    }
 
     protected override void Attack()
     {
-        if (_weapon.GetCurrentAmmo() <= 0)
-            Reload();
-        else
+        if (!IsReloading() && CheckCanShoot())
         {
-            Shoot();
+            if (HasAmmo())
+            {
+                Shoot();
 
-            Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation);
-
-            _weapon.SetCurrentClipSize(-1);
-
-            if (_weapon.GetCurrentAmmo() <= 0)
-                Reload();
+                if (!HasAmmo())
+                    Reload();
+            }
             else
-            {
-                Invoke("Shoot", _weapon.GetFireRate());
-
-                _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
-            }
-
-            if (_weapon.CanShoot())
-            {
-                _weapon.SetCanShoot(false);
-            }
+                Reload();
         }
     }
 
@@ -41,6 +42,7 @@ public class Gun : WeaponManager
     {
         if (_weapon.CanReload())
         {
+            _playerUI.UpdateReloadBar(_weapon.GetReloadSpeed());
             Invoke("UpdateClip", _weapon.GetReloadSpeed());
         }
         //else
@@ -52,14 +54,42 @@ public class Gun : WeaponManager
         return _weapon.CanReload();
     }
 
+    private bool IsReloading()
+    {
+        return SO_PlayerSystems.GetIsReloading();
+    }
+
+    private bool HasAmmo()
+    {
+        return _weapon.GetCurrentAmmo() > 0;
+    }
+
     private void Shoot()
     {
-        _weapon.ToggleCanShoot();
+        _weapon.SetCanShoot(false);
+
+        Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation);
+
+        _weapon.SetCurrentClipSize(-1);
+
+        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+
+        _current = _weapon.GetFireRate();
+    }
+
+    private void EnableShoot()
+    {
+        _weapon.SetCanShoot(true);
+    }
+
+    private bool CheckCanShoot()
+    {
+        return _weapon.CanShoot();
     }
 
     private void OnEnable()
     {
-        _playerInventory.SetCurrentWeapon(_weapon);
+        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
     }
 
     private void UpdateClip()
@@ -67,6 +97,6 @@ public class Gun : WeaponManager
         _weapon.SetTotalAmmo(_weapon.GetCurrentAmmo() - _weapon.GetMaxClip());
         _weapon.SetCurrentClipSize(_weapon.GetMaxClip() - _weapon.GetCurrentAmmo());
 
-        _playerInventory.UpdateCurrentAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
     }
 }

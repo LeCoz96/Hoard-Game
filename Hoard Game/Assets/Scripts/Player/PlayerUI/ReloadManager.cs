@@ -10,24 +10,28 @@ public class ReloadManager : MonoBehaviour
 
     private float _current;
     private float _timer;
+    private bool _isReloading;
 
     void Update()
     {
-        if (_current >= 0.0f)
+        if (_isReloading)
         {
-            SO_PlayerSystems.ToggleReloading();
-            _reloadBar.SetActive(true);
+            if (_current >= 0.0f)
+            {
+                _reloadBar.SetActive(true);
 
-            _current -= Time.deltaTime;
-            _reloadForground.fillAmount = _current / _timer;
-        }
-        else
-        {
+                _current -= Time.deltaTime;
+                _reloadForground.fillAmount = _current / _timer;
+            }
+            else
+            {
+                _reloadBar.SetActive(false);
+                _reloadForground.fillAmount = 1;
 
-            _reloadBar.SetActive(false);
-            _reloadForground.fillAmount = 1;
+                SO_PlayerSystems.ToggleReloading();
 
-            SO_PlayerSystems.ToggleReloading();
+                _isReloading = false;
+            }
         }
     }
 
@@ -35,5 +39,7 @@ public class ReloadManager : MonoBehaviour
     {
         _timer = time;
         _current = time;
+        _isReloading = true;
+        SO_PlayerSystems.ToggleReloading();
     }
 }

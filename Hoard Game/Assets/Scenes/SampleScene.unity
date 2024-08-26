@@ -571,6 +571,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5877368239076033344, guid: 01d77fd69396c614ea4a371d26316452, type: 3}
+      propertyPath: _playerUI
+      value: 
+      objectReference: {fileID: 1398677143}
+    - target: {fileID: 5877368239076033344, guid: 01d77fd69396c614ea4a371d26316452, type: 3}
       propertyPath: _playerInventory
       value: 
       objectReference: {fileID: 1398677145}
@@ -6959,6 +6963,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4078662306659907855, guid: 28cac15429ba5ab44be0bd722c6a8e1a, type: 3}
+      propertyPath: _playerUI
+      value: 
+      objectReference: {fileID: 1398677143}
+    - target: {fileID: 4078662306659907855, guid: 28cac15429ba5ab44be0bd722c6a8e1a, type: 3}
       propertyPath: _playerInventory
       value: 
       objectReference: {fileID: 1398677145}
@@ -8365,6 +8373,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6191922163657192641, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
+      propertyPath: _playerUI
+      value: 
+      objectReference: {fileID: 1398677143}
     - target: {fileID: 6191922163657192641, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
       propertyPath: _playerInventory
       value: 
@@ -9984,6 +9996,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5241711642043424241, guid: b8472c75b2bc2ee4b98e87869dace24f, type: 3}
+      propertyPath: _playerUI
+      value: 
+      objectReference: {fileID: 1398677143}
+    - target: {fileID: 5241711642043424241, guid: b8472c75b2bc2ee4b98e87869dace24f, type: 3}
       propertyPath: _playerInventory
       value: 
       objectReference: {fileID: 1398677145}
@@ -10281,6 +10297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212368993294781830, guid: c0bf9d1fd848d554abda1ef59eb498bc, type: 3}
+      propertyPath: _playerUI
+      value: 
+      objectReference: {fileID: 1398677143}
     - target: {fileID: 6212368993294781830, guid: c0bf9d1fd848d554abda1ef59eb498bc, type: 3}
       propertyPath: _playerInventory
       value: 
