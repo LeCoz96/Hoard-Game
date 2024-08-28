@@ -29,7 +29,6 @@ public class SO_Weapon : ScriptableObject
     public float GetReloadSpeed() { return _reloadSpeed; }
 
     public bool CanCollect() { return _currentAmmo < _maxAmmo; }
-
     public void SetCurrentClipSize(int value) { _currentAmmo += value; }
     public void SetTotalAmmo(int value) { _totalAmmo += value; }
     public bool CanReload() { return _currentAmmo < _maxClip && _totalAmmo > 0; }
@@ -38,6 +37,16 @@ public class SO_Weapon : ScriptableObject
     public bool CanShoot() { return _canShoot; }
     public void SetCanShoot(bool value) { _canShoot = value; }
     public void ToggleCanShoot() { _canShoot = !_canShoot; }
+
+    public void UpdateAmmo()
+    {
+        if (_totalAmmo < _maxClip)
+            _currentAmmo = _totalAmmo;
+        else
+            _currentAmmo = ValueCheck(_currentAmmo);
+
+        // not this!
+    }
 
     public int AddAmmo(int value)
     {
@@ -50,4 +59,11 @@ public class SO_Weapon : ScriptableObject
         }
     }
 
+    private int ValueCheck(int value)
+    {
+        if (value <= 0)
+            return 0;
+        else
+            return value;
+    }
 }

@@ -94,8 +94,10 @@ public class Gun : WeaponManager
 
     private void UpdateClip()
     {
-        _weapon.SetTotalAmmo(_weapon.GetCurrentAmmo() - _weapon.GetMaxClip());
-        _weapon.SetCurrentClipSize(_weapon.GetMaxClip() - _weapon.GetCurrentAmmo());
+        _weapon.SetTotalAmmo(_weapon.GetCurrentAmmo() - _weapon.GetMaxClip()); // not this
+        _weapon.SetCurrentClipSize(_weapon.GetMaxClip() - _weapon.GetCurrentAmmo()); // not this
+
+        //_weapon.UpdateAmmo(); this
 
         _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
     }
