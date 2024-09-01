@@ -24,7 +24,7 @@ public class Gun : WeaponManager
 
     protected override void Attack()
     {
-        if (!IsReloading() && CheckCanShoot())
+        if (!_weapon.IsReloading() && CheckCanShoot())
         {
             if (HasAmmo())
             {
@@ -43,7 +43,7 @@ public class Gun : WeaponManager
         if (_weapon.CanReload())
         {
             _playerUI.UpdateReloadBar(_weapon.GetReloadSpeed());
-            Invoke("UpdateClip", _weapon.GetReloadSpeed());
+            StartCoroutine(ReloadDelay());
         }
         //else
         //    // play animation
@@ -52,11 +52,6 @@ public class Gun : WeaponManager
     public override bool CanReload()
     {
         return _weapon.CanReload();
-    }
-
-    private bool IsReloading()
-    {
-        return SO_PlayerSystems.GetIsReloading();
     }
 
     private bool HasAmmo()
@@ -68,7 +63,15 @@ public class Gun : WeaponManager
     {
         _weapon.SetCanShoot(false);
 
-        Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation);
+        Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation); // add accuracy further into the project
+        /*
+         * float x  = Random.Range(-horizontalSpread, horizontalSpread);
+         * float y  = Random.Range(-verticalSpread, verticalSpread);    
+         * 
+         * transform.rotation + new Vector3(x, y, 0);
+         * 
+         * Not sure this will work, but something like this
+         */
 
         _weapon.SetCurrentClipSize(-1);
 
@@ -97,5 +100,16 @@ public class Gun : WeaponManager
         _weapon.UpdateAmmo();
 
         _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+    }
+
+    private IEnumerator ReloadDelay()
+    {
+        _weapon.ToggleReload();
+
+        yield return new WaitForSeconds(_weapon.GetReloadSpeed());
+
+        UpdateClip();
+
+        _weapon.ToggleReload();
     }
 }

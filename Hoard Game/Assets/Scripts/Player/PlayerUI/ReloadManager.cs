@@ -28,8 +28,6 @@ public class ReloadManager : MonoBehaviour
                 _reloadBar.SetActive(false);
                 _reloadForground.fillAmount = 1;
 
-                SO_PlayerSystems.ToggleReloading();
-
                 _isReloading = false;
             }
         }
@@ -40,6 +38,5 @@ public class ReloadManager : MonoBehaviour
         _timer = time;
         _current = time;
         _isReloading = true;
-        SO_PlayerSystems.ToggleReloading();
     }
 }

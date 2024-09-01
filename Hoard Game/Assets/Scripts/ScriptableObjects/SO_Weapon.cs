@@ -17,6 +17,7 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private bool _isAutomatic;
     [SerializeField] private bool _isMelee;
     private bool _canShoot;
+    private bool _isReloading;
     [Header("Weapon UI")]
     [SerializeField] private GameObject _weaponPrefab;
     [SerializeField] private Sprite _weaponIcon;
@@ -37,6 +38,9 @@ public class SO_Weapon : ScriptableObject
     public bool CanShoot() { return _canShoot; }
     public void SetCanShoot(bool value) { _canShoot = value; }
     public void ToggleCanShoot() { _canShoot = !_canShoot; }
+
+    public void ToggleReload() { _isReloading = !_isReloading; }
+    public bool IsReloading() { return _isReloading; }
 
     public void UpdateAmmo()
     {

@@ -31,10 +31,10 @@ public class PlayerAttack : MonoBehaviour
 
     public void Reload()
     {
-        if (!SO_PlayerSystems._isReloading)
-        {
-            WeaponManager weapon = GetWeaponManager();
+        WeaponManager weapon = GetWeaponManager();
 
+        if (!weapon.GetCurrentWeapon().IsReloading())
+        {
             if (weapon.CanReload())
                 weapon.BaseReload();
         }
