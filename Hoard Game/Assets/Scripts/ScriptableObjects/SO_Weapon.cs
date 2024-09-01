@@ -40,12 +40,19 @@ public class SO_Weapon : ScriptableObject
 
     public void UpdateAmmo()
     {
-        if (_totalAmmo < _maxClip)
-            _currentAmmo = _totalAmmo;
-        else
-            _currentAmmo = ValueCheck(_currentAmmo);
-
-        // not this!
+        if (_totalAmmo > 0)
+        {
+            if (_totalAmmo < _maxClip)
+            {
+                _currentAmmo = _totalAmmo;
+                _totalAmmo = 0;
+            }
+            else
+            {
+                _totalAmmo -= (_maxClip - _currentAmmo);
+                _currentAmmo = _maxClip;
+            }
+        }
     }
 
     public int AddAmmo(int value)
@@ -57,13 +64,5 @@ public class SO_Weapon : ScriptableObject
             _currentAmmo += value;
             return _currentAmmo;
         }
-    }
-
-    private int ValueCheck(int value)
-    {
-        if (value <= 0)
-            return 0;
-        else
-            return value;
     }
 }
