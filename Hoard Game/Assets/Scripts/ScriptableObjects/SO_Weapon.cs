@@ -59,10 +59,17 @@ public class SO_Weapon : ScriptableObject
         }
     }
 
+    //public int AddToClip(int value)
+    //{
+
+    //}
+
     public int AddAmmo(int value)
     {
         if ((_currentAmmo + value) >= _maxAmmo)
+        {
             return _currentAmmo = _maxAmmo;
+        }
         else
         {
             _currentAmmo += value;
