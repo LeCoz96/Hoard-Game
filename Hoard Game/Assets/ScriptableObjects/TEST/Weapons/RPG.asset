@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: RPG
   m_EditorClassIdentifier: 
   _maxAmmo: 20
-  _currentAmmo: 1
-  _totalAmmo: 8
+  _currentClip: 0
+  _remainingAmmo: 0
   _maxClip: 1
   _fireRate: 0
-  _reloadSpeed: 5
+  _reloadSpeed: 4
   _isAutomatic: 0
   _isMelee: 0
   _weaponPrefab: {fileID: 7670779620426368027, guid: 28cac15429ba5ab44be0bd722c6a8e1a, type: 3}

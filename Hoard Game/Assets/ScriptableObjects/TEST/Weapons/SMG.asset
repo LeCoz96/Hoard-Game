@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   _maxAmmo: 600
-  _currentAmmo: 30
-  _totalAmmo: 200
-  _maxClip: 30
+  _currentClip: 40
+  _remainingAmmo: 600
+  _maxClip: 40
   _fireRate: 0.05
-  _reloadSpeed: 2
+  _reloadSpeed: 1.5
   _isAutomatic: 1
   _isMelee: 0
   _weaponPrefab: {fileID: 1810009754713828, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}

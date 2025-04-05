@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   _maxAmmo: 120
-  _currentAmmo: 8
-  _totalAmmo: 50
+  _currentClip: 0
+  _remainingAmmo: 0
   _maxClip: 8
   _fireRate: 0
-  _reloadSpeed: 5
+  _reloadSpeed: 3
   _isAutomatic: 0
   _isMelee: 0
   _weaponPrefab: {fileID: 1824798276992903475, guid: 01d77fd69396c614ea4a371d26316452, type: 3}

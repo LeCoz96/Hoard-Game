@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ public class InputManager : MonoBehaviour
     private PlayerMovement _motor;
     private PlayerLook _look;
     private PlayerAttack _attack;
+    private PlayerMenus _menus;
 
     void Awake()
     {
@@ -29,6 +31,10 @@ public class InputManager : MonoBehaviour
         OnFoot.Shoot.started += ctx => _attack.Attack();
         OnFoot.Shoot.canceled += ctx => _attack.EndAttack();
         OnFoot.Reload.performed += ctx => _attack.Reload();
+
+        _menus = GetComponent<PlayerMenus>();
+        OnFoot.WeaponPanel.started += ctx => _menus.OpenWeaponPanel();
+        OnFoot.WeaponPanel.canceled += ctx => _menus.CloseWeaponPanel();
     }
 
     void FixedUpdate()

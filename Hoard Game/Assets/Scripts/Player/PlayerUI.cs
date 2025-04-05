@@ -12,11 +12,6 @@ public class PlayerUI : MonoBehaviour
     [Header("Weapons")]
     [SerializeField] private TextMeshProUGUI _weaponCurrentClip;
     [SerializeField] private TextMeshProUGUI _weaponRemainingAmmo;
-    [SerializeField] private TextMeshProUGUI _pistolAmmo;
-    [SerializeField] private TextMeshProUGUI _SMGAmmo;
-    [SerializeField] private TextMeshProUGUI _rifleAmmo;
-    [SerializeField] private TextMeshProUGUI _shotgunAmmo;
-    [SerializeField] private TextMeshProUGUI _rpgAmmo;
 
     [Header("Stats - Health")]
     [SerializeField] private HealthManager _healthManager;
@@ -33,13 +28,6 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private ReloadManager _reloadManager;
 
     public void UpdatePromptText(string promptMessage) { _promptText.text = promptMessage; }
-
-    // Weapon Panel
-    public void UpdatePanelPistolAmmo(int value) { _pistolAmmo.text = value.ToString(); }
-    public void UpdatePanelSMGAmmo(int value) { _SMGAmmo.text = value.ToString(); }
-    public void UpdatePanelRifleAmmo(int value) { _rifleAmmo.text = value.ToString(); }
-    public void UpdatePanelShotgunAmmo(int value) { _shotgunAmmo.text = value.ToString(); }
-    public void UpdatePanelRPGAmmo(int value) { _rpgAmmo.text = value.ToString(); }
 
     public void UpdateCurrentAmmo(int currentClip)
     {

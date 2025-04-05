@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   _maxAmmo: 200
-  _currentAmmo: 30
-  _totalAmmo: 100
+  _currentClip: 30
+  _remainingAmmo: 192
   _maxClip: 30
   _fireRate: 0.1
-  _reloadSpeed: 3
+  _reloadSpeed: 2
   _isAutomatic: 1
   _isMelee: 0
   _weaponPrefab: {fileID: 1587966684976882, guid: c0bf9d1fd848d554abda1ef59eb498bc, type: 3}

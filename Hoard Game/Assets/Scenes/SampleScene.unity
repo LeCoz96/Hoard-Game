@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8078612506766018470, guid: 11a7bcf36d7038c458c5149f2c8d9982, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11a7bcf36d7038c458c5149f2c8d9982, type: 3}
@@ -3206,7 +3206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5063829711959409996, guid: 4bf46721c99a5e442a2448dc2d62ef7a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bf46721c99a5e442a2448dc2d62ef7a, type: 3}
@@ -5780,7 +5780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8078612506766018470, guid: 11a7bcf36d7038c458c5149f2c8d9982, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11a7bcf36d7038c458c5149f2c8d9982, type: 3}
@@ -6890,6 +6890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1222213277}
+  - component: {fileID: 1222213278}
   m_Layer: 5
   m_Name: WeaponPanel
   m_TagString: Untagged
@@ -6918,6 +6919,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1222213278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222213276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d178438454ba94cb02ed911814de10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pistol: {fileID: 11400000, guid: 34a09d6a74be3f1498eb88129480e057, type: 2}
+  _SMG: {fileID: 11400000, guid: a2e71770a8f92304d99178467c6bd574, type: 2}
+  _rifle: {fileID: 11400000, guid: abee9a49e103aff4cbf1933087146cb5, type: 2}
+  _shotgun: {fileID: 11400000, guid: 42ba1f97efdc55c4093c7744aa9a3e54, type: 2}
+  _rgp: {fileID: 11400000, guid: 03ac20c5dd092b5459f7a53d695360b5, type: 2}
+  _pistolAmmo: {fileID: 25338302}
+  _SMGAmmo: {fileID: 502960850}
+  _rifleAmmo: {fileID: 1138830267}
+  _shotgunAmmo: {fileID: 388993910}
+  _rpgAmmo: {fileID: 505016447}
 --- !u!4 &1238891002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 913839127282170169, guid: 6ae8fa0c4f956c7418ae2c28ea1868e9, type: 3}
@@ -7688,7 +7711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1350038352
 Transform:
   m_ObjectHideFlags: 0
@@ -7876,6 +7899,7 @@ GameObject:
   - component: {fileID: 1398677145}
   - component: {fileID: 1398677146}
   - component: {fileID: 1398677147}
+  - component: {fileID: 1398677148}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8045,11 +8069,6 @@ MonoBehaviour:
   _promptText: {fileID: 1537842348}
   _weaponCurrentClip: {fileID: 1926380536}
   _weaponRemainingAmmo: {fileID: 1650800738}
-  _pistolAmmo: {fileID: 25338302}
-  _SMGAmmo: {fileID: 502960850}
-  _rifleAmmo: {fileID: 1138830267}
-  _shotgunAmmo: {fileID: 388993910}
-  _rpgAmmo: {fileID: 505016447}
   _healthManager: {fileID: 101954903}
   _shieldManager: {fileID: 206557367}
   _key1UI: {fileID: 1378458360}
@@ -8111,6 +8130,19 @@ MonoBehaviour:
   - {fileID: 1802663959}
   - {fileID: 1142690217}
   - {fileID: 1242353644}
+--- !u!114 &1398677148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398677134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3974634936f854f8fe6f7593089653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsPanel: {fileID: 1222213276}
 --- !u!1001 &1417813729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8168,7 +8200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5063829711959409996, guid: 4bf46721c99a5e442a2448dc2d62ef7a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bf46721c99a5e442a2448dc2d62ef7a, type: 3}
@@ -8343,7 +8375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1810009754713828, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4507651082910892, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
       propertyPath: m_RootOrder
@@ -9965,7 +9997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1425814443739648, guid: b8472c75b2bc2ee4b98e87869dace24f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4918146466755900, guid: b8472c75b2bc2ee4b98e87869dace24f, type: 3}
       propertyPath: m_RootOrder
@@ -10354,7 +10386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825558498}
   m_Layer: 5
-  m_Name: Reload
+  m_Name: ReloadManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13272,7 +13304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8078612506766018470, guid: 11a7bcf36d7038c458c5149f2c8d9982, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11a7bcf36d7038c458c5149f2c8d9982, type: 3}
@@ -13475,7 +13507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5063829711959409996, guid: 4bf46721c99a5e442a2448dc2d62ef7a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bf46721c99a5e442a2448dc2d62ef7a, type: 3}
