@@ -8,17 +8,20 @@ public class Gun : WeaponManager
     [SerializeField] private GameObject _bulletSpawn;
     [SerializeField] private PlayerUI _playerUI;
 
-    private float _current = 0.0f;
+    private float _shotWaitTime = 0.0f;
 
     void Update()
     {
         if (!CheckCanShoot() && _weapon.IsAutomatic())
         {
-
-            if (_current >= 0.0f)
-                _current -= Time.deltaTime;
+            if (_shotWaitTime >= 0.0f)
+            {
+                _shotWaitTime -= Time.deltaTime;
+            }
             else
+            {
                 EnableShoot();
+            }
         }
     }
 
@@ -30,11 +33,16 @@ public class Gun : WeaponManager
             {
                 Shoot();
 
-                if (!HasAmmo())
-                    Reload();
+                //if (!HasAmmo())
+                //{
+                //    Reload();
+                //}
             }
             else
-                Reload();
+            {
+                //Reload();
+                Debug.Log("NO AMMO PLAY EMPTY CLIP SOUND");
+            }
         }
     }
 
@@ -75,9 +83,11 @@ public class Gun : WeaponManager
 
         _weapon.SetCurrentClipSize(-1);
 
-        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+        //_playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
 
-        _current = _weapon.GetFireRate();
+        _playerUI.UpdateCurrentAmmo(_weapon.GetCurrentAmmo());
+
+        _shotWaitTime = _weapon.GetFireRate();
     }
 
     private void EnableShoot()
@@ -92,14 +102,14 @@ public class Gun : WeaponManager
 
     private void OnEnable()
     {
-        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetRemainingAmmo());
     }
 
     private void UpdateClip()
     {
         _weapon.UpdateAmmo();
 
-        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
+        _playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetRemainingAmmo());
     }
 
     private IEnumerator ReloadDelay()

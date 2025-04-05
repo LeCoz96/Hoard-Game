@@ -510,10 +510,10 @@ RectTransform:
   m_Father: {fileID: 952447846}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -293}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &57581115
 PrefabInstance:
@@ -1579,10 +1579,10 @@ RectTransform:
   m_Father: {fileID: 952447846}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -179}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &176921156
 GameObject:
@@ -4483,7 +4483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &795190361
 Transform:
   m_ObjectHideFlags: 0
@@ -4907,10 +4907,10 @@ RectTransform:
   m_Father: {fileID: 952447846}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -521}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &936154385
 GameObject:
@@ -5289,7 +5289,7 @@ GameObject:
   - component: {fileID: 1010733605}
   - component: {fileID: 1010733606}
   m_Layer: 5
-  m_Name: ReloadManager
+  m_Name: WeaponManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6080,10 +6080,10 @@ RectTransform:
   m_Father: {fileID: 952447846}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -407}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1112979440
 GameObject:
@@ -6896,7 +6896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1222213277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8009,8 +8009,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
-  xSensitivity: 30
-  ySensitivity: 30
+  xSensitivity: 50
+  ySensitivity: 50
   _cameraYMax: 80
   _cameraYMin: -80
 --- !u!114 &1398677142
@@ -8043,8 +8043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _promptText: {fileID: 1537842348}
-  _weaponCurrentAmmo: {fileID: 1926380536}
-  _weaponTotalAmmo: {fileID: 1650800738}
+  _weaponCurrentClip: {fileID: 1926380536}
+  _weaponRemainingAmmo: {fileID: 1650800738}
   _pistolAmmo: {fileID: 25338302}
   _SMGAmmo: {fileID: 502960850}
   _rifleAmmo: {fileID: 1138830267}
@@ -8430,7 +8430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1482585887
 Transform:
   m_ObjectHideFlags: 0
@@ -9390,10 +9390,10 @@ RectTransform:
   m_Father: {fileID: 952447846}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -635}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1650800736
 GameObject:
@@ -9407,7 +9407,7 @@ GameObject:
   - component: {fileID: 1650800739}
   - component: {fileID: 1650800738}
   m_Layer: 5
-  m_Name: TotalAmmo
+  m_Name: RemainingAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10607,7 +10607,7 @@ GameObject:
   - component: {fileID: 1926380537}
   - component: {fileID: 1926380536}
   m_Layer: 5
-  m_Name: CurrentAmmo
+  m_Name: CurrentClip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11533,10 +11533,10 @@ RectTransform:
   m_Father: {fileID: 952447846}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -65}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2128973566
 GameObject:

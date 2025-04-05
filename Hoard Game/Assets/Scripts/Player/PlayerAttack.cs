@@ -11,7 +11,9 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (_isAttacking && GetWeaponManager().GetCurrentWeapon().IsAutomatic())
+        {
             Attack();
+        }
     }
 
     public void Attack()
@@ -26,7 +28,9 @@ public class PlayerAttack : MonoBehaviour
         _isAttacking = false;
 
         if (!GetWeaponManager().GetCurrentWeapon().IsAutomatic())
+        {
             GetWeaponManager().GetCurrentWeapon().SetCanShoot(true);
+        }
     }
 
     public void Reload()
@@ -36,7 +40,9 @@ public class PlayerAttack : MonoBehaviour
         if (!weapon.GetCurrentWeapon().IsReloading())
         {
             if (weapon.CanReload())
+            {
                 weapon.BaseReload();
+            }
         }
     }
 
@@ -45,7 +51,9 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < _weapons.Count; i++)
         {
             if (_weapons[i].gameObject.activeInHierarchy)
+            {
                 return _weapons[i];
+            }
         }
 
         Debug.Log("Cannot get weapon");

@@ -33,11 +33,11 @@ public class PlayerInventory : MonoBehaviour
 
     public void OrganiseInventory()
     {
-        _playerUI.UpdatePistolAmmo(_pistol.GetCurrentAmmo());
-        _playerUI.UpdateSMGAmmo(_SMG.GetCurrentAmmo());
-        _playerUI.UpdateRifleAmmo(_rifle.GetCurrentAmmo());
-        _playerUI.UpdateShotgunAmmo(_shotgun.GetCurrentAmmo());
-        _playerUI.UpdateRPGAmmo(_rgp.GetCurrentAmmo());
+        _playerUI.UpdatePanelPistolAmmo(_pistol.GetCurrentAmmo());
+        _playerUI.UpdatePanelSMGAmmo(_SMG.GetCurrentAmmo());
+        _playerUI.UpdatePanelRifleAmmo(_rifle.GetCurrentAmmo());
+        _playerUI.UpdatePanelShotgunAmmo(_shotgun.GetCurrentAmmo());
+        _playerUI.UpdatePanelRPGAmmo(_rgp.GetCurrentAmmo());
     }
 
     public void AddToInventory(Collectable.CollectableType type, int quantity)
@@ -45,15 +45,15 @@ public class PlayerInventory : MonoBehaviour
         switch (type)
         {
             case Collectable.CollectableType.PistolAmmo:
-                _playerUI.UpdatePistolAmmo(_pistol.AddAmmo(quantity));
+                _pistol.AddAmmo(quantity);
+                _playerUI.UpdatePanelPistolAmmo(_pistol.GetTotalAmmo());
+                _playerUI.UpdateCurrentWeaponAmmo(_pistol.GetCurrentAmmo(), _pistol.GetRemainingAmmo());
                 break;
 
             case Collectable.CollectableType.SMGAmmo:
-                _playerUI.UpdateSMGAmmo(_SMG.AddAmmo(quantity));
                 break;
 
             case Collectable.CollectableType.RifleAmmo:
-                _playerUI.UpdateRifleAmmo(_rifle.AddAmmo(quantity));
                 break;
 
             case Collectable.CollectableType.HealthKit:

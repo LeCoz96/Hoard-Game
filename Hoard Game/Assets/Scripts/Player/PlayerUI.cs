@@ -10,8 +10,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _promptText;
 
     [Header("Weapons")]
-    [SerializeField] private TextMeshProUGUI _weaponCurrentAmmo;
-    [SerializeField] private TextMeshProUGUI _weaponTotalAmmo;
+    [SerializeField] private TextMeshProUGUI _weaponCurrentClip;
+    [SerializeField] private TextMeshProUGUI _weaponRemainingAmmo;
     [SerializeField] private TextMeshProUGUI _pistolAmmo;
     [SerializeField] private TextMeshProUGUI _SMGAmmo;
     [SerializeField] private TextMeshProUGUI _rifleAmmo;
@@ -34,16 +34,22 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdatePromptText(string promptMessage) { _promptText.text = promptMessage; }
 
-    public void UpdatePistolAmmo(int value) { _pistolAmmo.text = value.ToString(); }
-    public void UpdateSMGAmmo(int value) { _SMGAmmo.text = value.ToString(); }
-    public void UpdateRifleAmmo(int value) { _rifleAmmo.text = value.ToString(); }
-    public void UpdateShotgunAmmo(int value) { _shotgunAmmo.text = value.ToString(); }
-    public void UpdateRPGAmmo(int value) { _rpgAmmo.text = value.ToString(); }
+    // Weapon Panel
+    public void UpdatePanelPistolAmmo(int value) { _pistolAmmo.text = value.ToString(); }
+    public void UpdatePanelSMGAmmo(int value) { _SMGAmmo.text = value.ToString(); }
+    public void UpdatePanelRifleAmmo(int value) { _rifleAmmo.text = value.ToString(); }
+    public void UpdatePanelShotgunAmmo(int value) { _shotgunAmmo.text = value.ToString(); }
+    public void UpdatePanelRPGAmmo(int value) { _rpgAmmo.text = value.ToString(); }
 
-    public void UpdateCurrentWeaponAmmo(int value1, int value2)
+    public void UpdateCurrentAmmo(int currentClip)
     {
-        _weaponCurrentAmmo.text = value1.ToString();
-        _weaponTotalAmmo.text = value2.ToString();
+        _weaponCurrentClip.text = currentClip.ToString();
+    }
+
+    public void UpdateCurrentWeaponAmmo(int currentClip, int _remainingAmmo)
+    {
+        _weaponCurrentClip.text = currentClip.ToString();
+        _weaponRemainingAmmo.text = _remainingAmmo.ToString();
     }
 
     public void SetHealth(int value)

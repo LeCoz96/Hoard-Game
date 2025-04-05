@@ -7,8 +7,8 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private Camera _camera;
     private float _xRotation = 0.0f;
 
-    [SerializeField] private float xSensitivity;
-    [SerializeField] private float ySensitivity;
+    [SerializeField] private float xSensitivity; // DEFAULT 30
+    [SerializeField] private float ySensitivity; // DEFAULT 30
 
     [SerializeField] private float _cameraYMax;
     [SerializeField] private float _cameraYMin;

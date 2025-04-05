@@ -9,8 +9,8 @@ public class SO_Weapon : ScriptableObject
 {
     [Header("Weapon Attributes")]
     [SerializeField] private int _maxAmmo;
-    [SerializeField] private int _currentAmmo;
-    [SerializeField] private int _totalAmmo;
+    [SerializeField] private int _currentClip;
+    [SerializeField] private int _remainingAmmo;
     [SerializeField] private int _maxClip;
     [SerializeField] private float _fireRate;
     [SerializeField] private float _reloadSpeed;
@@ -23,16 +23,17 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private Sprite _weaponIcon;
     [SerializeField] private Material _weaponMaterial;
 
-    public int GetCurrentAmmo() { return _currentAmmo; }
-    public int GetTotalAmmo() { return _totalAmmo; }
+    public int GetCurrentAmmo() { return _currentClip; }
+    public int GetRemainingAmmo() { return _remainingAmmo; }
+    public int GetTotalAmmo() { return _currentClip + _remainingAmmo;  }
     public int GetMaxClip() { return _maxClip; }
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }
 
-    public bool CanCollect() { return _currentAmmo < _maxAmmo; }
-    public void SetCurrentClipSize(int value) { _currentAmmo += value; }
-    public void SetTotalAmmo(int value) { _totalAmmo += value; }
-    public bool CanReload() { return _currentAmmo < _maxClip && _totalAmmo > 0; }
+    public bool CanCollect() { return _remainingAmmo < _maxAmmo; }
+    public void SetCurrentClipSize(int value) { _currentClip += value; }
+    public void SetRemainingAmmo(int value) { _remainingAmmo += value; }
+    public bool CanReload() { return _currentClip < _maxClip && _remainingAmmo > 0; }
 
     public bool IsAutomatic() { return _isAutomatic; }
     public bool CanShoot() { return _canShoot; }
@@ -44,17 +45,17 @@ public class SO_Weapon : ScriptableObject
 
     public void UpdateAmmo()
     {
-        if (_totalAmmo > 0)
+        if (_remainingAmmo > 0)
         {
-            if (_totalAmmo < _maxClip)
+            if (_remainingAmmo < _maxClip)
             {
-                _currentAmmo = _totalAmmo;
-                _totalAmmo = 0;
+                _currentClip = _remainingAmmo;
+                _remainingAmmo = 0;
             }
             else
             {
-                _totalAmmo -= (_maxClip - _currentAmmo);
-                _currentAmmo = _maxClip;
+                _remainingAmmo -= (_maxClip - _currentClip);
+                _currentClip = _maxClip;
             }
         }
     }
@@ -64,16 +65,15 @@ public class SO_Weapon : ScriptableObject
 
     //}
 
-    public int AddAmmo(int value)
+    public void AddAmmo(int value)
     {
-        if ((_currentAmmo + value) >= _maxAmmo)
+        if((_remainingAmmo + value) >= _maxAmmo)
         {
-            return _currentAmmo = _maxAmmo;
+            _remainingAmmo = _maxAmmo;
         }
         else
         {
-            _currentAmmo += value;
-            return _currentAmmo;
+            _remainingAmmo += value;
         }
     }
 }
