@@ -6,16 +6,45 @@ using TMPro;
 
 public class HealthManager : MonoBehaviour
 {
-    [Header("Heath")]
+    [Header("Health")]
     [SerializeField] private TextMeshProUGUI _healthValue;
     [SerializeField] private Image _healthBar;
     [SerializeField] private SO_Consumable _health;
 
     [Header("Damage")]
     [SerializeField] private Image _damageOverlay;
-    [SerializeField] private float _fadeDelay;
-    [SerializeField] private float _fadeSpeed;
+    [SerializeField] private float _fadeTime;
+    private float _fadePerSecond;
+    private float _alphaValue;
+    private float _localFadeTime;
+
     private bool _damageOverlayIsComplete = true;
+    private bool _damageTaken;
+
+    void Start()
+    {
+        _fadePerSecond = 1 / _fadeTime;
+    }
+
+    void Update()
+    {
+        if (_damageTaken == true)
+        {
+            _damageOverlayIsComplete = false;
+
+            if (_localFadeTime > 0)
+            {
+                Debug.Log("Reducing");
+                _alphaValue -= _fadePerSecond * Time.deltaTime;
+                _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, _alphaValue);
+                _localFadeTime -= Time.deltaTime;
+            }
+            else
+            {
+                _damageOverlayIsComplete = true;
+            }
+        }
+    }
 
     public void SetHealth(int value)
     {
@@ -28,39 +57,28 @@ public class HealthManager : MonoBehaviour
 
         _healthBar.fillAmount = (float)targetValue / (float)maxValue;
 
-        if (isDamage)
+        if (isDamage == true)
         {
-            if (_damageOverlayIsComplete)
+            if (_damageOverlayIsComplete == true)
             {
-                if (_healthBar.fillAmount < 0.25)
-                    _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
-                else
-                    StartCoroutine(DamageOverlay());
+                _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
+                _alphaValue = _damageOverlay.color.a;
+
+                if (_healthBar.fillAmount > 0.25)
+                {
+                    _localFadeTime = _fadeTime;
+                    _damageTaken = true;
+                }
             }
         }
         else
         {
+            _damageTaken = false;
+
             if (_healthBar.fillAmount > 0.25)
+            {
                 _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 0);
+            }
         }
-    }
-
-    private IEnumerator DamageOverlay()
-    {
-        _damageOverlayIsComplete = false;
-
-        _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 1);
-
-        yield return new WaitForSeconds(_fadeDelay);
-
-        for (float i = 1f; i >= 0; i -= 0.1f)
-        {
-            _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, i);
-            yield return new WaitForSeconds(_fadeSpeed);
-        }
-
-        _damageOverlay.color = new Color(_damageOverlay.color.r, _damageOverlay.color.g, _damageOverlay.color.b, 0);
-
-        _damageOverlayIsComplete = true;
     }
 }
