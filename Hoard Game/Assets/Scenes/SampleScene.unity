@@ -1079,7 +1079,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101954902}
-  - component: {fileID: 101954903}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -1111,23 +1110,6 @@ RectTransform:
   m_AnchoredPosition: {x: -625, y: -425}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &101954903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101954901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f41c65410eefeb459fd4fabf2df60e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthValue: {fileID: 745191383}
-  _healthBar: {fileID: 901504614}
-  _health: {fileID: 11400000, guid: 9d041b6f9907fc04cb8f6eb79df32666, type: 2}
-  _damageOverlay: {fileID: 1928878655}
-  _fadeTime: 2
 --- !u!1001 &103466140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1210,7 +1192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &121560051
 Transform:
   m_ObjectHideFlags: 0
@@ -1219,7 +1201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121560050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 1, z: -20}
+  m_LocalPosition: {x: 12, y: 1, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1797,7 +1779,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206557366}
-  - component: {fileID: 206557367}
   m_Layer: 5
   m_Name: Shield
   m_TagString: Untagged
@@ -1829,21 +1810,6 @@ RectTransform:
   m_AnchoredPosition: {x: -625, y: -460}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &206557367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206557365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5888be3f9c7a5c45b801deaaf7b5fe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shieldValue: {fileID: 1614103053}
-  _shieldBar: {fileID: 988420431}
-  _shield: {fileID: 11400000, guid: 7fb8c8710cd351c4aa270f21531c43c3, type: 2}
 --- !u!1001 &209446475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3083,6 +3049,146 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505016445}
   m_CullTransparentMesh: 1
+--- !u!1 &508258283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508258284}
+  - component: {fileID: 508258289}
+  - component: {fileID: 508258288}
+  - component: {fileID: 508258287}
+  - component: {fileID: 508258286}
+  - component: {fileID: 508258285}
+  m_Layer: 6
+  m_Name: EOA - TakeDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &508258284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508258283}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8, y: 1, z: -16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1482585887}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &508258285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508258283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c266ff6db8ee4c6489e4a1655e3aaecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1398677146}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -20
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &508258286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508258283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d376dda6c32d8a24ca6451961aaef16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PromptMessage: '[E] Take Damage'
+  UseEvents: 1
+--- !u!65 &508258287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508258283}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &508258288
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508258283}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 063aaf4de8e9dd344b5de473e1ad2534, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &508258289
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508258283}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &522506373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3456,11 +3562,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88623b87e81cee44bae8130865e40489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthValue: {fileID: 0}
-  _healthBar: {fileID: 0}
-  _health: {fileID: 0}
-  _healthDamageOverlay: {fileID: 0}
-  _healthFadeTime: 0
+  _healthValue: {fileID: 745191383}
+  _healthBar: {fileID: 901504614}
+  _health: {fileID: 11400000, guid: 9d041b6f9907fc04cb8f6eb79df32666, type: 2}
+  _healthDamageOverlay: {fileID: 1928878655}
+  _healthFadeTime: 2
+  _sheildValue: {fileID: 0}
+  _sheildBar: {fileID: 0}
+  _sheild: {fileID: 0}
+  _sheildDamageOverlay: {fileID: 0}
+  _sheildFadeTime: 0
 --- !u!1 &585309401
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4938,7 @@ GameObject:
   - component: {fileID: 901504615}
   - component: {fileID: 901504614}
   m_Layer: 5
-  m_Name: HealthForeground
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8086,8 +8197,7 @@ MonoBehaviour:
   _promptText: {fileID: 1537842348}
   _weaponCurrentClip: {fileID: 1926380536}
   _weaponRemainingAmmo: {fileID: 1650800738}
-  _healthManager: {fileID: 101954903}
-  _shieldManager: {fileID: 206557367}
+  _overlaysManager: {fileID: 585105677}
   _key1UI: {fileID: 1378458360}
   _key2UI: {fileID: 1037841533}
   _key3UI: {fileID: 10779503}
@@ -8496,6 +8606,7 @@ Transform:
   - {fileID: 1078222388}
   - {fileID: 1765530246}
   - {fileID: 121560051}
+  - {fileID: 508258284}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10095,7 +10206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1765530243
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10167,7 +10278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765530242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 1, z: -16}
+  m_LocalPosition: {x: 12, y: 1, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10191,7 +10302,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1398677146}
         m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
-        m_MethodName: UpdateHealth
+        m_MethodName: TakeDamage
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

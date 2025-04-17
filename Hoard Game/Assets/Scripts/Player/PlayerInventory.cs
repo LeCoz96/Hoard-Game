@@ -46,11 +46,11 @@ public class PlayerInventory : MonoBehaviour
                 break;
 
             case Collectable.CollectableType.HealthKit:
-                _playerStats.UpdateHealth(quantity);
+                _playerStats.IncreaseHealth(quantity);
                 break;
 
             case Collectable.CollectableType.ShieldKit:
-                _playerStats.UpdateShield(quantity);
+                _playerStats.IncreaseSheild(quantity);
                 break;
 
             case Collectable.CollectableType.Key1:

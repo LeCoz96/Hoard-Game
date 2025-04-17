@@ -13,11 +13,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _weaponCurrentClip;
     [SerializeField] private TextMeshProUGUI _weaponRemainingAmmo;
 
-    [Header("Stats - Health")]
-    [SerializeField] private HealthManager _healthManager;
-
-    [Header("Stats - Shield")]
-    [SerializeField] private ShieldManager _shieldManager;
+    [Header("Stats - Overlays")]
+    [SerializeField] private OverlaysManager _overlaysManager;
 
     [Header("Key")]
     [SerializeField] private GameObject _key1UI;
@@ -42,22 +39,22 @@ public class PlayerUI : MonoBehaviour
 
     public void SetHealth(int value)
     {
-        _healthManager.SetHealth(value);
+        _overlaysManager.SetHealth(value);
     }
 
     public void SetShield(int value)
     {
-        _shieldManager.SetShield(value);
+        _overlaysManager.SetShield(value);
     }
 
     public void UpdateHealthValue(int targetValue, int maxValue, bool isDamage)
     {
-        _healthManager.TriggerHealth(targetValue, maxValue, isDamage);
+        _overlaysManager.TriggerHealthOverlay(targetValue, maxValue, isDamage);
     }
 
-    public void UpdateShieldValue(int targetValue, int maxValue)
+    public void UpdateShieldValue(int targetValue, int maxValue, bool isDamage)
     {
-        _shieldManager.TriggerShield(targetValue, maxValue);
+        _overlaysManager.TriggerSheildOverlay(targetValue, maxValue, isDamage);
     }
 
     public void UpdateKeys(int keyIndex)

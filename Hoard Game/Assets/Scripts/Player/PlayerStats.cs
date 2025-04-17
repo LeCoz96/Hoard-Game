@@ -27,41 +27,61 @@ public class PlayerStats : MonoBehaviour
 
     public bool ShieldCheck() { return _currentShield < _maxShield; }
 
-    public void UpdateHealth(int value)
+    public void TakeDamage(int value)
     {
-        bool isDamage = value < 0;
-
         _currentHealth = GetCorrectValue(value, _currentHealth, _maxHealth);
 
-        _playerUI.UpdateHealthValue(_currentHealth, _maxHealth, isDamage);
+        // DAMAGE SHEILD OR HEALTH?
+
+        _playerUI.UpdateHealthValue(_currentHealth, _maxHealth, true);
     }
 
-    public void UpdateShield(int value)
+    public void IncreaseHealth(int value)
+    {
+        _currentHealth = GetCorrectValue(value, _currentHealth, _maxHealth);
+    }
+    public void IncreaseSheild(int value)
     {
         _currentShield = GetCorrectValue(value, _currentShield, _maxShield);
-
-        if (_currentShield <= 0)
-        {
-            int temp = 0 + _currentShield;
-            _currentShield = 0;
-            _playerUI.UpdateShieldValue(_currentShield, _maxShield);
-            UpdateHealth(temp);
-        }
-
-        _playerUI.UpdateShieldValue(_currentShield, _maxShield);
     }
+
+    //public void UpdateHealth(int value)
+    //{
+    //    bool isDamage = value < 0;
+
+    //    _currentHealth = GetCorrectValue(value, _currentHealth, _maxHealth);
+
+    //    _playerUI.UpdateHealthValue(_currentHealth, _maxHealth, isDamage);
+    //}
+
+    //public void UpdateShield(int value)
+    //{
+    //    _currentShield = GetCorrectValue(value, _currentShield, _maxShield);
+
+    //    if (_currentShield <= 0)
+    //    {
+    //        int temp = 0 + _currentShield;
+    //        _currentShield = 0;
+    //        _playerUI.UpdateShieldValue(_currentShield, _maxShield);
+    //        UpdateHealth(temp);
+    //    }
+
+    //    _playerUI.UpdateShieldValue(_currentShield, _maxShield);
+    //}
 
     private int GetCorrectValue(int givenValue, int targetValue, int maxValue)
     {
         if ((targetValue + givenValue) >= maxValue)
         {
-            targetValue = maxValue;
+            return maxValue;
+        }
+        else if((targetValue + givenValue) <= 0)
+        {
+            return 0;
         }
         else
         {
-            targetValue += givenValue;
+            return targetValue += givenValue;
         }
-
-        return targetValue;
     }
 }
