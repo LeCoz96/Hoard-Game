@@ -37,24 +37,24 @@ public class PlayerUI : MonoBehaviour
         _weaponRemainingAmmo.text = _remainingAmmo.ToString();
     }
 
-    public void SetHealth(int value)
+    public void SetHealth(int targetValue, int maxValue)
     {
-        _overlaysManager.SetHealth(value);
+        _overlaysManager.SetHealth(targetValue, maxValue);
     }
 
-    public void SetShield(int value)
+    public void SetShield(int targetValue, int maxValue)
     {
-        _overlaysManager.SetShield(value);
+        _overlaysManager.SetShield(targetValue, maxValue);
     }
 
-    public void UpdateHealthValue(int targetValue, int maxValue, bool isDamage)
+    public void UpdateHealthOverlay(int targetValue, int maxValue)
     {
-        _overlaysManager.TriggerHealthOverlay(targetValue, maxValue, isDamage);
+        _overlaysManager.TriggerHealthOverlay(targetValue, maxValue);
     }
 
-    public void UpdateShieldValue(int targetValue, int maxValue, bool isDamage)
+    public void UpdateShieldOverlay(int targetValue, int maxValue)
     {
-        _overlaysManager.TriggerSheildOverlay(targetValue, maxValue, isDamage);
+        _overlaysManager.TriggerSheildOverlay(targetValue, maxValue);
     }
 
     public void UpdateKeys(int keyIndex)

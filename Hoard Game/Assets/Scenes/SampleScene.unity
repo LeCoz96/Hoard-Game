@@ -3107,7 +3107,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -20
+          m_IntArgument: 30
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3567,11 +3567,11 @@ MonoBehaviour:
   _health: {fileID: 11400000, guid: 9d041b6f9907fc04cb8f6eb79df32666, type: 2}
   _healthDamageOverlay: {fileID: 1928878655}
   _healthFadeTime: 2
-  _sheildValue: {fileID: 0}
-  _sheildBar: {fileID: 0}
-  _sheild: {fileID: 0}
-  _sheildDamageOverlay: {fileID: 0}
-  _sheildFadeTime: 0
+  _sheildValue: {fileID: 1614103053}
+  _sheildBar: {fileID: 988420431}
+  _sheild: {fileID: 11400000, guid: 7fb8c8710cd351c4aa270f21531c43c3, type: 2}
+  _sheildDamageOverlay: {fileID: 86103973}
+  _sheildFadeTime: 2
 --- !u!1 &585309401
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,7 +5343,7 @@ GameObject:
   - component: {fileID: 988420432}
   - component: {fileID: 988420431}
   m_Layer: 5
-  m_Name: ShieldForeground
+  m_Name: ShieldBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

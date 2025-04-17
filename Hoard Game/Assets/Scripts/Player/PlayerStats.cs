@@ -17,10 +17,10 @@ public class PlayerStats : MonoBehaviour
         _playerUI = GetComponent<PlayerUI>();
 
         _currentHealth = _maxHealth;
-        _playerUI.SetHealth(_currentHealth);
+        _playerUI.SetHealth(_currentHealth, _maxHealth);
 
         _currentShield = _maxShield;
-        _playerUI.SetShield(_currentShield);
+        _playerUI.SetShield(_currentShield, _maxShield);
     }
 
     public bool HealthCheck() { return _currentHealth < _maxHealth; }
@@ -29,45 +29,60 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int value)
     {
-        _currentHealth = GetCorrectValue(value, _currentHealth, _maxHealth);
+        if(_currentShield > 0)
+        {
+            if((_currentShield - value) < 0)
+            {
+                _currentHealth -= (value - _currentShield);
 
-        // DAMAGE SHEILD OR HEALTH?
+                _currentShield = 0;
 
-        _playerUI.UpdateHealthValue(_currentHealth, _maxHealth, true);
+                _playerUI.SetShield(_currentShield, _maxShield);
+
+                _playerUI.UpdateHealthOverlay(_currentHealth, _maxHealth);
+            }
+            else
+            {
+                _currentShield -= value;
+
+                _playerUI.SetShield(_currentShield, _maxShield);
+
+                _playerUI.UpdateShieldOverlay(_currentShield, _maxShield);
+            }
+        }
+        else
+        {
+            if ((_currentHealth - value) < 0)
+            {
+                _currentHealth = 0;
+
+                _playerUI.SetHealth(_currentHealth, _maxHealth);
+
+                Debug.Log("PLAYER IS DEAD");
+            }
+            else
+            {
+                _currentHealth -= value;
+
+                _playerUI.SetHealth(_currentHealth, _maxHealth);
+
+                _playerUI.UpdateHealthOverlay(_currentHealth, _maxHealth);
+            }
+        }
     }
 
     public void IncreaseHealth(int value)
     {
         _currentHealth = GetCorrectValue(value, _currentHealth, _maxHealth);
+
+        _playerUI.SetHealth(_currentHealth, _maxHealth);
     }
     public void IncreaseSheild(int value)
     {
         _currentShield = GetCorrectValue(value, _currentShield, _maxShield);
+
+        _playerUI.SetShield(_currentShield, _maxShield);
     }
-
-    //public void UpdateHealth(int value)
-    //{
-    //    bool isDamage = value < 0;
-
-    //    _currentHealth = GetCorrectValue(value, _currentHealth, _maxHealth);
-
-    //    _playerUI.UpdateHealthValue(_currentHealth, _maxHealth, isDamage);
-    //}
-
-    //public void UpdateShield(int value)
-    //{
-    //    _currentShield = GetCorrectValue(value, _currentShield, _maxShield);
-
-    //    if (_currentShield <= 0)
-    //    {
-    //        int temp = 0 + _currentShield;
-    //        _currentShield = 0;
-    //        _playerUI.UpdateShieldValue(_currentShield, _maxShield);
-    //        UpdateHealth(temp);
-    //    }
-
-    //    _playerUI.UpdateShieldValue(_currentShield, _maxShield);
-    //}
 
     private int GetCorrectValue(int givenValue, int targetValue, int maxValue)
     {

@@ -15,8 +15,7 @@ public class OverlaysManager : MonoBehaviour
     private float _healthFadePerSecond;
     private float _healthAlphaValue;
     private float _healthLocalFadeTime;
-    private bool _healthOverlayIsComplete = true;
-    private bool _healthDamageTaken;
+    private bool _startHealthOverlayFade;
 
     [Header("Sheild")]
     [SerializeField] private TextMeshProUGUI _sheildValue;
@@ -27,9 +26,7 @@ public class OverlaysManager : MonoBehaviour
     private float _sheildFadePerSecond;
     private float _sheildAlphaValue;
     private float _sheildLocalFadeTime;
-    private bool _sheildOverlayIsComplete = true;
-    private bool _sheildDamageTaken;
-    
+    private bool _startShieldOverlayFade;
 
     void Start()
     {
@@ -39,10 +36,8 @@ public class OverlaysManager : MonoBehaviour
 
     void Update()
     {
-        if (_healthDamageTaken == true)
+        if (_startHealthOverlayFade == true)
         {
-            _healthOverlayIsComplete = false;
-
             if (_healthLocalFadeTime > 0)
             {
                 Debug.Log("Reducing Health");
@@ -52,14 +47,12 @@ public class OverlaysManager : MonoBehaviour
             }
             else
             {
-                _healthOverlayIsComplete = true;
+                _startHealthOverlayFade = false;
             }
         }
 
-        if (_sheildDamageTaken == true)
+        if (_startShieldOverlayFade == true)
         {
-            _sheildOverlayIsComplete = false;
-
             if (_sheildLocalFadeTime > 0)
             {
                 Debug.Log("Reducing Sheild");
@@ -69,80 +62,59 @@ public class OverlaysManager : MonoBehaviour
             }
             else
             {
-                _sheildOverlayIsComplete = true;
+                _startShieldOverlayFade = false;
             }
         }
     }
 
-    public void SetHealth(int value)
-    {
-        _healthValue.text = value.ToString();
-    }
-
-    public void SetShield(int value)
-    {
-        _sheildValue.text = value.ToString();
-    }
-
-    public void TriggerHealthOverlay(int targetValue, int maxValue, bool isDamage)
+    public void SetHealth(int targetValue, int maxValue)
     {
         _healthValue.text = targetValue.ToString();
 
         _healthBar.fillAmount = (float)targetValue / (float)maxValue;
 
-        if (isDamage == true)
+        if (_healthBar.fillAmount > 0.25)
         {
-            if (_healthOverlayIsComplete == true)
-            {
-                _healthDamageOverlay.color = new Color(_healthDamageOverlay.color.r, _healthDamageOverlay.color.g, _healthDamageOverlay.color.b, 1);
-                _healthAlphaValue = _healthDamageOverlay.color.a;
-
-                if (_healthBar.fillAmount > 0.25)
-                {
-                    _healthLocalFadeTime = _healthFadeTime;
-                    _healthDamageTaken = true;
-                }
-            }
-        }
-        else
-        {
-            _healthDamageTaken = false;
-
-            if (_healthBar.fillAmount > 0.25)
-            {
-                _healthDamageOverlay.color = new Color(_healthDamageOverlay.color.r, _healthDamageOverlay.color.g, _healthDamageOverlay.color.b, 0);
-            }
+            _healthLocalFadeTime = _healthFadeTime;
+            _startHealthOverlayFade = true;
         }
     }
 
-    public void TriggerSheildOverlay(int targetValue, int maxValue, bool isDamage)
+    public void SetShield(int targetValue, int maxValue)
     {
         _sheildValue.text = targetValue.ToString();
 
         _sheildBar.fillAmount = (float)targetValue / (float)maxValue;
+    }
 
-        if (isDamage == true)
+    public void TriggerHealthOverlay(int targetValue, int maxValue)
+    {
+        SetHealth(targetValue, maxValue);
+
+        _healthDamageOverlay.color = new Color(_healthDamageOverlay.color.r, _healthDamageOverlay.color.g, _healthDamageOverlay.color.b, 1);
+        _healthAlphaValue = _healthDamageOverlay.color.a;
+
+        if (_healthBar.fillAmount > 0.25)
         {
-            if (_sheildOverlayIsComplete == true)
-            {
-                _sheildDamageOverlay.color = new Color(_sheildDamageOverlay.color.r, _sheildDamageOverlay.color.g, _sheildDamageOverlay.color.b, 1);
-                _sheildAlphaValue = _sheildDamageOverlay.color.a;
+            _healthLocalFadeTime = _healthFadeTime;
+            _startHealthOverlayFade = true;
+        }
+    }
 
-                if (_sheildBar.fillAmount > 0.25)
-                {
-                    _sheildLocalFadeTime = _sheildFadeTime;
-                    _sheildDamageTaken = true;
-                }
-            }
+    public void TriggerSheildOverlay(int targetValue, int maxValue)
+    {
+        SetShield(targetValue, maxValue);
+
+        if (_sheildBar.fillAmount <= 0)
+        {
+            _sheildDamageOverlay.color = new Color(_sheildDamageOverlay.color.r, _sheildDamageOverlay.color.g, _sheildDamageOverlay.color.b, 0);
         }
         else
         {
-            _sheildDamageTaken = false;
-
-            if (_sheildBar.fillAmount > 0.25)
-            {
-                _sheildDamageOverlay.color = new Color(_sheildDamageOverlay.color.r, _sheildDamageOverlay.color.g, _sheildDamageOverlay.color.b, 0);
-            }
+            _sheildDamageOverlay.color = new Color(_sheildDamageOverlay.color.r, _sheildDamageOverlay.color.g, _sheildDamageOverlay.color.b, 1);
+            _sheildAlphaValue = _sheildDamageOverlay.color.a;
+            _sheildLocalFadeTime = _sheildFadeTime;
+            _startShieldOverlayFade = true;
         }
     }
 }
