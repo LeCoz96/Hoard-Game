@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hueMaterial: {fileID: 2100000, guid: 3c09711577591c644bec3748f29e0c1c, type: 2}
-  _collectableQuantity: 1
+  _collectableQuantity: 5
   _collectableType: 7
   _spinSpeed: 50
 --- !u!95 &3626577654884210950

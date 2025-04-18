@@ -8,7 +8,7 @@ public abstract class WeaponManager : MonoBehaviour
     [SerializeField] protected SO_Weapon _weapon;
     [SerializeField] protected PlayerInventory _playerInventory;
 
-    protected bool _isUnlimitedAmmo;
+    protected bool _isAmmoBuffed;
 
     public SO_Weapon GetCurrentWeapon() { return _weapon; }
 
@@ -28,8 +28,8 @@ public abstract class WeaponManager : MonoBehaviour
     }
     protected virtual void Reload() { }
 
-    public void SetUnlimitedAmmo(bool value)
+    public void SetAmmoBuff(bool value)
     {
-        _isUnlimitedAmmo = value;
+        _isAmmoBuffed = value;
     }
 }

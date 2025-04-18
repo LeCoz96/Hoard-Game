@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
-    [SerializeField] private float _unlimitedAmmoTime;
 
     private bool _isAttacking = false;
 
@@ -61,17 +60,17 @@ public class PlayerAttack : MonoBehaviour
         return null;
     }
 
-    public void SetUnlimitedAmmo()
+    public void SetAmmoBuff(int time)
     {
-        StartCoroutine(UnlimitedAmmoTimer());
+        StartCoroutine(AmmoBuffTimer(time));
     }
 
-    private IEnumerator UnlimitedAmmoTimer()
+    private IEnumerator AmmoBuffTimer(int time)
     {
-        GetWeaponManager().SetUnlimitedAmmo(true);
+        GetWeaponManager().SetAmmoBuff(true);
 
-        yield return new WaitForSeconds(_unlimitedAmmoTime);
+        yield return new WaitForSeconds(time);
 
-        GetWeaponManager().SetUnlimitedAmmo(false);
+        GetWeaponManager().SetAmmoBuff(false);
     }
 }

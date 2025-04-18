@@ -72,7 +72,7 @@ public class Gun : WeaponManager
          * 
          * Not sure this will work, but something like this
          */
-        if (_isUnlimitedAmmo == false)
+        if (_isAmmoBuffed == false)
         {
             _weapon.SetCurrentClipSize(-1);
             _playerUI.UpdateCurrentAmmo(_weapon.GetCurrentAmmo());
