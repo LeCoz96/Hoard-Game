@@ -19,6 +19,9 @@ public class Collectable : MonoBehaviour
         RifleAmmo,
         HealthKit,
         ShieldKit,
+        Damage,
+        Speed,
+        Ammo,
         Key1,
         Key2,
         Key3
