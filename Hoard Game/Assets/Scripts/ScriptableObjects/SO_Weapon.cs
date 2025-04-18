@@ -29,6 +29,7 @@ public class SO_Weapon : ScriptableObject
     public int GetMaxClip() { return _maxClip; }
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }
+    public bool GetIsMelee() { return _isMelee;  }
 
     public bool CanCollect() { return _remainingAmmo < _maxAmmo; }
     public void SetCurrentClipSize(int value) { _currentClip += value; }
@@ -59,11 +60,6 @@ public class SO_Weapon : ScriptableObject
             }
         }
     }
-
-    //public int AddToClip(int value)
-    //{
-
-    //}
 
     public void AddAmmo(int value)
     {

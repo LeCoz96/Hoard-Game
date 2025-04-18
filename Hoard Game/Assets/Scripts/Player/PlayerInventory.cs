@@ -6,6 +6,7 @@ public class PlayerInventory : MonoBehaviour
 {
     private PlayerUI _playerUI;
     private PlayerStats _playerStats;
+    private PlayerAttack _playerAttack;
 
     [SerializeField] private SO_Weapon _pistol;
     [SerializeField] private SO_Weapon _SMG;
@@ -24,6 +25,7 @@ public class PlayerInventory : MonoBehaviour
     {
         _playerStats = GetComponent<PlayerStats>();
         _playerUI = GetComponent<PlayerUI>();
+        _playerAttack = GetComponent<PlayerAttack>();
     }
 
     public void AddToInventory(Collectable.CollectableType type, int quantity)
@@ -62,7 +64,7 @@ public class PlayerInventory : MonoBehaviour
                 break;
             
             case Collectable.CollectableType.Ammo:
-                //_playerStats.IncreaseSheild(quantity);
+                _playerAttack.SetUnlimitedAmmo();
                 break;
 
             case Collectable.CollectableType.Key1:

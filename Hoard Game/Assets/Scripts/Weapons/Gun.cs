@@ -32,15 +32,9 @@ public class Gun : WeaponManager
             if (HasAmmo())
             {
                 Shoot();
-
-                //if (!HasAmmo())
-                //{
-                //    Reload();
-                //}
             }
             else
             {
-                //Reload();
                 Debug.Log("NO AMMO PLAY EMPTY CLIP SOUND");
             }
         }
@@ -53,8 +47,6 @@ public class Gun : WeaponManager
             _playerUI.UpdateReloadBar(_weapon.GetReloadSpeed());
             StartCoroutine(ReloadDelay());
         }
-        //else
-        //    // play animation
     }
 
     public override bool CanReload()
@@ -80,12 +72,11 @@ public class Gun : WeaponManager
          * 
          * Not sure this will work, but something like this
          */
-
-        _weapon.SetCurrentClipSize(-1);
-
-        //_playerUI.UpdateCurrentWeaponAmmo(_weapon.GetCurrentAmmo(), _weapon.GetTotalAmmo());
-
-        _playerUI.UpdateCurrentAmmo(_weapon.GetCurrentAmmo());
+        if (_isUnlimitedAmmo == false)
+        {
+            _weapon.SetCurrentClipSize(-1);
+            _playerUI.UpdateCurrentAmmo(_weapon.GetCurrentAmmo());
+        }
 
         _shotWaitTime = _weapon.GetFireRate();
     }

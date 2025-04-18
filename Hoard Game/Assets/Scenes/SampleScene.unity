@@ -9890,6 +9890,7 @@ MonoBehaviour:
   - {fileID: 1802663959}
   - {fileID: 1142690217}
   - {fileID: 1242353644}
+  _unlimitedAmmoTime: 5
 --- !u!114 &1398677148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10099,6 +10100,10 @@ PrefabInstance:
     - target: {fileID: 2780236604581221359, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
       propertyPath: m_Name
       value: Damage (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780236604581221359, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
@@ -11832,6 +11837,10 @@ PrefabInstance:
     - target: {fileID: 2780236604581221359, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
       propertyPath: m_Name
       value: Damage (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780236604581221359, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
@@ -16460,6 +16469,10 @@ PrefabInstance:
     - target: {fileID: 2780236604581221359, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
       propertyPath: m_Name
       value: Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780236604581221359, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15d7154ece70f28469d804566c2e51e6, type: 3}

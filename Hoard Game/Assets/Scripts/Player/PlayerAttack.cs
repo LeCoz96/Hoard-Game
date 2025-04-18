@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private List<WeaponManager> _weapons = new List<WeaponManager>();
+    [SerializeField] private float _unlimitedAmmoTime;
 
     private bool _isAttacking = false;
 
@@ -58,5 +59,19 @@ public class PlayerAttack : MonoBehaviour
 
         Debug.Log("Cannot get weapon");
         return null;
+    }
+
+    public void SetUnlimitedAmmo()
+    {
+        StartCoroutine(UnlimitedAmmoTimer());
+    }
+
+    private IEnumerator UnlimitedAmmoTimer()
+    {
+        GetWeaponManager().SetUnlimitedAmmo(true);
+
+        yield return new WaitForSeconds(_unlimitedAmmoTime);
+
+        GetWeaponManager().SetUnlimitedAmmo(false);
     }
 }
