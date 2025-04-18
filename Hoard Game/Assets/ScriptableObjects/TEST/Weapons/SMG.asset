@@ -22,4 +22,4 @@ MonoBehaviour:
   _isMelee: 0
   _weaponPrefab: {fileID: 1810009754713828, guid: f54bd3895b31d6a4a9dc6a5256811265, type: 3}
   _weaponIcon: {fileID: 21300000, guid: 5990d17b91d876444a0e5a4446dc22ed, type: 3}
-  _weaponMaterial: {fileID: 2100000, guid: 80837e5ff141bf947921cbf6751b5ba3, type: 2}
+  _weaponMaterial: {fileID: 2100000, guid: ed1d93a29da763243bf8c108b0187813, type: 2}

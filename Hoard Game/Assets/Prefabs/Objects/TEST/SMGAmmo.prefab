@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a19ed01a769b2e45a0bd27222269cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hueMaterial: {fileID: 2100000, guid: 80837e5ff141bf947921cbf6751b5ba3, type: 2}
+  _hueMaterial: {fileID: 2100000, guid: ed1d93a29da763243bf8c108b0187813, type: 2}
   _collectableQuantity: 300
   _collectableType: 1
   _spinSpeed: 50

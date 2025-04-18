@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a19ed01a769b2e45a0bd27222269cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hueMaterial: {fileID: 2100000, guid: ce9c8610ae5223d40b57b18b63623e30, type: 2}
+  _hueMaterial: {fileID: 2100000, guid: 0d082544740df3a438e57668c28631d2, type: 2}
   _collectableQuantity: 50
   _collectableType: 0
   _spinSpeed: 50

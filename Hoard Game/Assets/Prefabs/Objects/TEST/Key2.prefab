@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a19ed01a769b2e45a0bd27222269cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hueMaterial: {fileID: 2100000, guid: df72824ded9e34442aee02d06d1b4747, type: 2}
+  _hueMaterial: {fileID: 2100000, guid: 9164cf897eab69c45a6c448b1be81ca7, type: 2}
   _collectableQuantity: 1
-  _collectableType: 6
+  _collectableType: 9
   _spinSpeed: 50
 --- !u!95 &7648860556170425484
 Animator:

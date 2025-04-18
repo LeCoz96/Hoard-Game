@@ -2207,7 +2207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4599326622084062924, guid: 17573e40cf63a70479fc2b4b816ba859, type: 3}
       propertyPath: m_Name
-      value: Unlimited Ammo (1)
+      value: Ammo (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17573e40cf63a70479fc2b4b816ba859, type: 3}
@@ -2999,7 +2999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4599326622084062924, guid: 17573e40cf63a70479fc2b4b816ba859, type: 3}
       propertyPath: m_Name
-      value: Unlimited Ammo (2)
+      value: Ammo (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17573e40cf63a70479fc2b4b816ba859, type: 3}
@@ -15517,7 +15517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4599326622084062924, guid: 17573e40cf63a70479fc2b4b816ba859, type: 3}
       propertyPath: m_Name
-      value: Unlimited Ammo
+      value: Ammo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17573e40cf63a70479fc2b4b816ba859, type: 3}

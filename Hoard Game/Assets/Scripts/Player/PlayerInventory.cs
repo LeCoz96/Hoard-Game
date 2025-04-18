@@ -53,6 +53,18 @@ public class PlayerInventory : MonoBehaviour
                 _playerStats.IncreaseSheild(quantity);
                 break;
 
+            case Collectable.CollectableType.Damage:
+                //_playerStats.IncreaseSheild(quantity);
+                break;
+            
+            case Collectable.CollectableType.Speed:
+                //_playerStats.IncreaseSheild(quantity);
+                break;
+            
+            case Collectable.CollectableType.Ammo:
+                //_playerStats.IncreaseSheild(quantity);
+                break;
+
             case Collectable.CollectableType.Key1:
                 _key1.CollectKey();
                 _playerUI.UpdateKeys(1);
@@ -91,6 +103,15 @@ public class PlayerInventory : MonoBehaviour
 
             case Collectable.CollectableType.ShieldKit:
                 return _playerStats.ShieldCheck();
+
+            case Collectable.CollectableType.Damage:
+                return true;
+
+            case Collectable.CollectableType.Speed:
+                return true;
+
+            case Collectable.CollectableType.Ammo:
+                return true;
 
             case Collectable.CollectableType.Key1:
                 return _key1.CanCollect();

@@ -40,7 +40,6 @@ public class OverlaysManager : MonoBehaviour
         {
             if (_healthLocalFadeTime > 0)
             {
-                Debug.Log("Reducing Health");
                 _healthAlphaValue -= _healthFadePerSecond * Time.deltaTime;
                 _healthDamageOverlay.color = new Color(_healthDamageOverlay.color.r, _healthDamageOverlay.color.g, _healthDamageOverlay.color.b, _healthAlphaValue);
                 _healthLocalFadeTime -= Time.deltaTime;
@@ -55,7 +54,6 @@ public class OverlaysManager : MonoBehaviour
         {
             if (_sheildLocalFadeTime > 0)
             {
-                Debug.Log("Reducing Sheild");
                 _sheildAlphaValue -= _sheildFadePerSecond * Time.deltaTime;
                 _sheildDamageOverlay.color = new Color(_sheildDamageOverlay.color.r, _sheildDamageOverlay.color.g, _sheildDamageOverlay.color.b, _sheildAlphaValue);
                 _sheildLocalFadeTime -= Time.deltaTime;
