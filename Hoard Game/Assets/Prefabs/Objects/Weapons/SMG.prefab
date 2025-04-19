@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 11400000, guid: a2e71770a8f92304d99178467c6bd574, type: 2}
-  _bullet: {fileID: 3386180372248206967, guid: 9cbae9fb03d11a7438b5d213c5497743, type: 3}
+  _playerInventory: {fileID: 0}
+  _bullet: {fileID: 3386180372248206967, guid: 466d5e9da45935f40b26f025a66e883f, type: 3}
   _bulletSpawn: {fileID: 5652410530048340285}
-  _isGun: 1
+  _playerUI: {fileID: 0}
 --- !u!1 &5652410530048340285
 GameObject:
   m_ObjectHideFlags: 0

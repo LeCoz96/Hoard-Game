@@ -14,6 +14,7 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private int _maxClip;
     [SerializeField] private float _fireRate;
     [SerializeField] private float _reloadSpeed;
+    [SerializeField] private float _damage;
     [SerializeField] private bool _isAutomatic;
     [SerializeField] private bool _isMelee;
     private bool _canShoot;
@@ -29,6 +30,7 @@ public class SO_Weapon : ScriptableObject
     public int GetMaxClip() { return _maxClip; }
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }
+    public float GetDamage() { return _damage; }
     public bool GetIsMelee() { return _isMelee;  }
 
     public bool CanCollect() { return _remainingAmmo < _maxAmmo; }

@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private SO_Weapon _weapon;
 
+    private float _speed = 1000.0f;
     private float _bulletLife = 1.0f;
 
     private Rigidbody _rigidBody;
+
+    public float GetBulletDamage() { return _weapon.GetDamage(); }
 
     void Start()
     {
@@ -19,10 +22,13 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         if (_bulletLife > 0)
+        {
             _bulletLife -= Time.deltaTime;
+        }
         else
+        {
             Destroy(gameObject);
-
+        }
     }
 
     void FixedUpdate()

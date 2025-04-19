@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private SO_Weapon _SMG;
     [SerializeField] private SO_Weapon _rifle;
     [SerializeField] private SO_Weapon _shotgun;
-    [SerializeField] private SO_Weapon _rgp;
+    [SerializeField] private SO_Weapon _rpg;
 
     [SerializeField] private SO_Consumable _healthKit;
     [SerializeField] private SO_Consumable _shieldKit;
@@ -49,6 +49,16 @@ public class PlayerInventory : MonoBehaviour
                 _playerUI.UpdateCurrentWeaponAmmo(_rifle.GetCurrentAmmo(), _rifle.GetRemainingAmmo());
                 break;
 
+            case Collectable.CollectableType.ShotgunAmmo:
+                _shotgun.AddAmmo(quantity);
+                _playerUI.UpdateCurrentWeaponAmmo(_shotgun.GetCurrentAmmo(), _shotgun.GetRemainingAmmo());
+                break;
+
+            case Collectable.CollectableType.RGPAmmo:
+                _rpg.AddAmmo(quantity);
+                _playerUI.UpdateCurrentWeaponAmmo(_rpg.GetCurrentAmmo(), _rpg.GetRemainingAmmo());
+                break;
+
             case Collectable.CollectableType.HealthKit:
                 _playerStats.IncreaseHealth(quantity);
                 break;
@@ -58,7 +68,7 @@ public class PlayerInventory : MonoBehaviour
                 break;
 
             case Collectable.CollectableType.Damage:
-                //_playerStats.IncreaseSheild(quantity);
+                
                 break;
             
             case Collectable.CollectableType.Speed:
@@ -102,6 +112,12 @@ public class PlayerInventory : MonoBehaviour
             case Collectable.CollectableType.RifleAmmo:
                 return _rifle.CanCollect();
 
+            case Collectable.CollectableType.ShotgunAmmo:
+                return _shotgun.CanCollect();
+
+            case Collectable.CollectableType.RGPAmmo:
+                return _rpg.CanCollect();
+
             case Collectable.CollectableType.HealthKit:
                 return _playerStats.HealthCheck();
 
@@ -109,7 +125,7 @@ public class PlayerInventory : MonoBehaviour
                 return _playerStats.ShieldCheck();
 
             case Collectable.CollectableType.Damage:
-                return true;
+                return false;
 
             case Collectable.CollectableType.Speed:
                 return true;

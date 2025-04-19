@@ -17,6 +17,8 @@ public class Collectable : MonoBehaviour
         PistolAmmo,
         SMGAmmo,
         RifleAmmo,
+        ShotgunAmmo,
+        RGPAmmo,
         HealthKit,
         ShieldKit,
         Damage,
