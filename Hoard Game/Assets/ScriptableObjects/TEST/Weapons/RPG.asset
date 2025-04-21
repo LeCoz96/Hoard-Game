@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8037faa5d8d99a546a02e9054493a356, type: 3}
   m_Name: RPG
   m_EditorClassIdentifier: 
-  _maxAmmo: 20
-  _currentClip: 0
-  _remainingAmmo: 0
+  _maxAmmo: 15
+  _currentClip: 1
+  _remainingAmmo: 15
   _maxClip: 1
   _fireRate: 0
   _reloadSpeed: 4

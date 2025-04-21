@@ -14,10 +14,8 @@ public class EnemyHealthManager : MonoBehaviour
 
     private void HealthCheck()
     {
-        Debug.Log("Enemy Health: " + _health);
         if (_health <= 0)
         {
-            Debug.Log("Enemy is dead");
             gameObject.SetActive(false);
         }
     }

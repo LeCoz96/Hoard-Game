@@ -6,6 +6,7 @@ public class Gun : WeaponManager
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _bulletSpawn;
+    [SerializeField] private Camera _camera;
     [SerializeField] private PlayerUI _playerUI;
 
     private float _shotWaitTime = 0.0f;
@@ -32,6 +33,7 @@ public class Gun : WeaponManager
             if (HasAmmo())
             {
                 Shoot();
+                // muzzle flash
             }
             else
             {
@@ -63,20 +65,23 @@ public class Gun : WeaponManager
     {
         _weapon.SetCanShoot(false);
 
-        Instantiate(_bullet, _bulletSpawn.transform.position, transform.rotation); // add accuracy further into the project
-        /*
-         * float x  = Random.Range(-horizontalSpread, horizontalSpread);
-         * float y  = Random.Range(-verticalSpread, verticalSpread);    
-         * 
-         * transform.rotation + new Vector3(x, y, 0);
-         * 
-         * Not sure this will work, but something like this
-         */
-        if (_isAmmoBuffed == false)
+        RaycastHit hit;
+
+        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, _weapon.GetFireRange()))
         {
-            _weapon.SetCurrentClipSize(-1);
-            _playerUI.UpdateCurrentAmmo(_weapon.GetCurrentAmmo());
+            if(hit.transform.gameObject.layer == 3)
+            {
+                hit.transform.GetComponent<EnemyCollisionDamageManager>().TakeDamage(_weapon.GetDamage());
+            }
         }
+
+        // hit effect //https://www.youtube.com/watch?v=THnivyG0Mvo
+
+        //if (_isAmmoBuffed == false) // UNCOMMENT WHEN DEBUGGING IS COMPLETE
+        //{
+        //    _weapon.SetCurrentClipSize(-1);
+        //    _playerUI.UpdateCurrentAmmo(_weapon.GetCurrentAmmo());
+        //}
 
         _shotWaitTime = _weapon.GetFireRate();
     }

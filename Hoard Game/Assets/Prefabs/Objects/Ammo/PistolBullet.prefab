@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 11400000, guid: 34a09d6a74be3f1498eb88129480e057, type: 2}
+  _bulletLife: 2

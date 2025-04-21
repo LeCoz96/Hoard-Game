@@ -10,13 +10,10 @@ public class EnemyCollisionDamageManager : MonoBehaviour
     [Header("Damage Options")]
     [SerializeField] float _damageScalar;
 
-    private void OnTriggerEnter(Collider other)
+    public void TakeDamage(float damage)
     {
-        if (other.gameObject.tag == "Bullet")
-        {
-            float damageTaken = (other.gameObject.GetComponent<Bullet>().GetBulletDamage() * _damageScalar);
-            Debug.Log("DAMAGE TAKEN: " + damageTaken);
-            _enemyHealth.TakeDamage(damageTaken);
-        }
+        float damageTaken = damage * _damageScalar;
+
+        _enemyHealth.TakeDamage(damageTaken);
     }
 }

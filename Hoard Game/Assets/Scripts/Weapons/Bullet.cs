@@ -6,9 +6,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private SO_Weapon _weapon;
+    [SerializeField] private float _bulletLife;
 
     private float _speed = 1000.0f;
-    private float _bulletLife = 1.0f;
 
     private Rigidbody _rigidBody;
 
@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("HIT " + other.name);
         Destroy(gameObject);
     }
 }

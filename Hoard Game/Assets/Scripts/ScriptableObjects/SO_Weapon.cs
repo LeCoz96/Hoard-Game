@@ -17,6 +17,7 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private float _damage;
     [SerializeField] private bool _isAutomatic;
     [SerializeField] private bool _isMelee;
+    private float _fireRange = 100.0f;
     private bool _canShoot;
     private bool _isReloading;
     [Header("Weapon UI")]
@@ -31,6 +32,7 @@ public class SO_Weapon : ScriptableObject
     public float GetFireRate() { return _fireRate; }
     public float GetReloadSpeed() { return _reloadSpeed; }
     public float GetDamage() { return _damage; }
+    public float GetFireRange() { return _fireRange; }
     public bool GetIsMelee() { return _isMelee;  }
 
     public bool CanCollect() { return _remainingAmmo < _maxAmmo; }
