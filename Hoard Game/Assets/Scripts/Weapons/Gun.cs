@@ -6,6 +6,7 @@ public class Gun : WeaponManager
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _bulletSpawn;
+    [SerializeField] private ParticleSystem _muzzleFlash;
     [SerializeField] private Camera _camera;
     [SerializeField] private PlayerUI _playerUI;
 
@@ -64,6 +65,8 @@ public class Gun : WeaponManager
     private void Shoot()
     {
         _weapon.SetCanShoot(false);
+
+        _muzzleFlash.Play();
 
         RaycastHit hit;
 
