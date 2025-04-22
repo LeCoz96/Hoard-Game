@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun : WeaponManager
 {
-    [SerializeField] private ParticleSystem _muzzleFlash;
     [SerializeField] private Camera _camera;
     [SerializeField] private PlayerUI _playerUI;
 
@@ -32,7 +31,6 @@ public class Gun : WeaponManager
             if (HasAmmo())
             {
                 Shoot();
-                // muzzle flash
             }
             else
             {
@@ -64,8 +62,6 @@ public class Gun : WeaponManager
     {
         _weapon.SetCanShoot(false);
 
-        _muzzleFlash.Play();
-
         RaycastHit hit;
 
         if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, _weapon.GetFireRange()))
@@ -75,8 +71,6 @@ public class Gun : WeaponManager
                 hit.transform.GetComponent<EnemyCollisionDamageManager>().TakeDamage(_weapon.GetDamage());
             }
         }
-
-        // hit effect //https://www.youtube.com/watch?v=THnivyG0Mvo
 
         //if (_isAmmoBuffed == false) // UNCOMMENT WHEN DEBUGGING IS COMPLETE
         //{
