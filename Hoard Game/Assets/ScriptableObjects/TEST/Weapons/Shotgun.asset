@@ -21,6 +21,7 @@ MonoBehaviour:
   _damage: 3
   _isAutomatic: 0
   _isMelee: 0
+  _damageRange: 50
   _weaponPrefab: {fileID: 1824798276992903475, guid: 01d77fd69396c614ea4a371d26316452, type: 3}
   _weaponIcon: {fileID: 21300000, guid: ece27fa5e26a3924895da0b6c2137101, type: 3}
   _weaponMaterial: {fileID: 2100000, guid: 70df93b77e1eb834db9ee65dae0e0acf, type: 2}

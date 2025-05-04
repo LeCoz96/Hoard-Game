@@ -22,6 +22,8 @@ public class Gun : WeaponManager
                 EnableShoot();
             }
         }
+
+        Debug.DrawRay(_camera.transform.position, (_camera.transform.forward * _weapon.GetDamageRange()), Color.green);
     }
 
     protected override void Attack()
@@ -64,11 +66,18 @@ public class Gun : WeaponManager
 
         RaycastHit hit;
 
-        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, _weapon.GetFireRange()))
+        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, _weapon.GetDamageRange()))
         {
-            if(hit.transform.gameObject.layer == 3)
+            switch (hit.transform.gameObject.layer)
             {
-                hit.transform.GetComponent<EnemyCollisionDamageManager>().TakeDamage(_weapon.GetDamage());
+                case 3:
+                    hit.transform.GetComponent<EnemyCollisionDamageManager>().TakeDamage(_weapon.GetDamage());
+                    break;
+                case 7:
+                    hit.transform.GetComponent<BasicCollisionDamageManager>().TakeDamage(_weapon.GetDamage());
+                    break;
+                default:
+                    break;
             }
         }
 

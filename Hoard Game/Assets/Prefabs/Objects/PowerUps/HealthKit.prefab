@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hueMaterial: {fileID: 2100000, guid: da4369449dfd53340a5a9796384a8c72, type: 2}
   _collectableQuantity: 20
-  _collectableType: 3
+  _collectableType: 5
   _spinSpeed: 50
 --- !u!95 &6870841179723362492
 Animator:
