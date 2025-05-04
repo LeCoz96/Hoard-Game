@@ -24,6 +24,9 @@ public class SO_Weapon : ScriptableObject
     [SerializeField] private GameObject _weaponPrefab;
     [SerializeField] private Sprite _weaponIcon;
     [SerializeField] private Material _weaponMaterial;
+    [Header("Weapon Audio")]
+    [SerializeField] private AudioClip _attackSound;
+    [SerializeField] private AudioClip _reloadSound;
 
     public int GetCurrentAmmo() { return _currentClip; }
     public int GetRemainingAmmo() { return _remainingAmmo; }
@@ -34,6 +37,8 @@ public class SO_Weapon : ScriptableObject
     public float GetDamage() { return _damage; }
     public float GetDamageRange() { return _damageRange; }
     public bool GetIsMelee() { return _isMelee;  }
+    public AudioClip GetAttackSound() { return _attackSound; }
+    public AudioClip GetReloadSound() { return _reloadSound; }
 
     public bool CanCollect() { return _remainingAmmo < _maxAmmo; }
     public void SetCurrentClipSize(int value) { _currentClip += value; }

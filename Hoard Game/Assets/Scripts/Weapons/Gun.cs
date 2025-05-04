@@ -5,7 +5,9 @@ using UnityEngine;
 public class Gun : WeaponManager
 {
     [SerializeField] private Camera _camera;
+    [SerializeField] private GameObject _player;
     [SerializeField] private PlayerUI _playerUI;
+    [SerializeField] private PlayerAudioManager _playerAudio;
 
     private float _shotWaitTime = 0.0f;
 
@@ -81,6 +83,8 @@ public class Gun : WeaponManager
             }
         }
 
+        _playerAudio.PlaySound(_weapon.GetAttackSound(), _player);
+
         //if (_isAmmoBuffed == false) // UNCOMMENT WHEN DEBUGGING IS COMPLETE
         //{
         //    _weapon.SetCurrentClipSize(-1);
@@ -115,6 +119,8 @@ public class Gun : WeaponManager
     private IEnumerator ReloadDelay()
     {
         _weapon.ToggleReload();
+
+        _playerAudio.PlaySound(_weapon.GetReloadSound(), gameObject);
 
         yield return new WaitForSeconds(_weapon.GetReloadSpeed());
 

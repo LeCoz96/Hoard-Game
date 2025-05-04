@@ -25,3 +25,5 @@ MonoBehaviour:
   _weaponPrefab: {fileID: 1425814443739648, guid: b8472c75b2bc2ee4b98e87869dace24f, type: 3}
   _weaponIcon: {fileID: 21300000, guid: 4e6f6f78d12f76c478229af380154393, type: 3}
   _weaponMaterial: {fileID: 2100000, guid: 0d082544740df3a438e57668c28631d2, type: 2}
+  _attackSound: {fileID: 8300000, guid: dfce9467b267cad42aeb720aa5e759fe, type: 3}
+  _reloadSound: {fileID: 8300000, guid: 35677880b0d2c2a41b85a30fc49d520f, type: 3}
